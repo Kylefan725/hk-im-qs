@@ -1,16 +1,17 @@
----
-name: hkqs-cost-estimation
-description: Estimate Hong Kong specialist subcontract costs for instrumentation and monitoring, instrumented ground investigation and ground improvement. Use for quote build-ups, tender pricing, duration and frequency scenarios, plant and crew resources, monitoring services and specialist scope reconciliation.
----
+# Estimate a package or compare quotations
 
-# Specialist I&M, ground investigation and ground improvement estimates
+Use for rate build-ups, package pricing, ADMS/specialist quotation comparisons and cost scenarios. Let assess-change own any requested entitlement decision. Read only the domain references relevant to the priced scope.
 
-Read [hkqs-general](../hkqs-general/SKILL.md) first, then
-[cost and contract sources](../hkqs-general/references/cost-contract-sources.md) and the
-[source register](../hkqs-general/references/source-register.json).
+## Inputs
+
+Use the supplied quantities or the shared checked ledger, supplier quotations with dates/validity, scope matrix, programme/service periods, billing units, site constraints and evidenced resources. If a quantity basis is missing, run only the necessary measure-quantities steps. A missing market price is an open input, not zero.
+
+Read [project basis](../references/project-basis.md) first, then
+[cost and contract sources](../references/cost-contract-sources.md) and the
+[source register](../references/source-register.json).
 Use `CEDD-SMM-1992`, `CEDD-GS-2020`, `CEDD-PAH-2024` and the project's
 particular preambles/specifications only where adopted. Technical scope does not itself
-establish a separately payable item. This skill estimates work; it does not design it.
+establish a separately payable item. This playbook estimates work; it does not design it.
 
 For an adopted CEDD SMM Section 2 GI instrument item, inspect clauses 2.27–2.30:
 clause 2.30 places calibration, maintenance, readings and the required records within the
@@ -19,7 +20,10 @@ create extra payable items unless an adopted amendment/BOQ provision supports th
 Another project item or particular measurement schedule may use a different billing
 structure; identify the actual item rather than assuming a general SMM instrumentation category.
 
-## 1. Establish the commercial and technical basis
+
+## Steps
+
+### 1. Establish the commercial and technical basis
 
 Record the specialist subcontract/tender scope, price date, HKD or other currency,
 programme, working hours, access, exclusions, billing units and measurement edition.
@@ -30,7 +34,7 @@ methods, baseline/routine/event monitoring requirements and trial/acceptance obl
 Identify who supplies power, communications, boreholes, platforms, access and protection.
 Keep uncertain design quantities, installation depths and treatment extents visible.
 
-## 2. Separate one-off, recurring and event costs
+### 2. Separate one-off, recurring and event costs
 
 | Scope | Pricing evidence and boundary |
 |---|---|
@@ -49,7 +53,7 @@ Do not price purchase and full-term rental for the same instrument unless scope 
 both. State who owns equipment during and after the works and who bears loss/damage.
 Separate supplier warranty, contractor defects, ordinary maintenance and instructed replacement.
 
-## 3. Build a traceable resource estimate
+### 3. Build a traceable resource estimate
 
 For each item retain scope ID, billing unit, resource quantity, unit, source, date, validity,
 productivity basis, inclusions/exclusions, uncertainty and resulting amount.
@@ -81,7 +85,7 @@ even if the short BOQ description does not repeat that coverage. Disclose the se
 and frequency; an unknown included duration prevents a settled all-in rate.
 An estimate quantity is not automatically the measured quantity eligible for payment.
 
-## 4. Price monitoring duration and frequency
+### 4. Price monitoring duration and frequency
 
 Record installed points, active channels, logger count and visits as different drivers.
 Distinguish sensor sampling, data upload, processing, human review and report frequency.
@@ -97,7 +101,7 @@ Show baseline, normal service, extensions, intensified/event monitoring and remo
 For example, `service_cost = active_point_periods × quoted_point_period_rate`
 applies only when that unit and its inclusions are actually offered; otherwise build resources.
 
-## 5. Price GI and ground improvement with the correct drivers
+### 5. Price GI and ground improvement with the correct drivers
 
 Break drilling quantities into supported depth/diameter/material/method intervals and
 distinguish drilling, casing, samples, in-situ tests, laboratory work and instrument installation.
@@ -110,7 +114,7 @@ Keep design quantities, estimated consumption and actual measurable work separat
 Use low/base/high resource scenarios for uncertain ground or access with explicit drivers.
 Do not select grout mix, pressure, treatment spacing, instrument thresholds or acceptance limits.
 
-## 6. Check price evidence and contingencies
+### 6. Check price evidence and contingencies
 
 Prefer supplier quotes and bottom-up resources for specialist work. `CEDD-CEWTPI`
 expressly excludes ground investigation and E&M installations among other work; do not
@@ -122,7 +126,12 @@ Identify disposal, restricted hours, permits, safety access, third-party attenda
 outage requirements from the actual scope; remove duplicated allowances across packages.
 Treat provisional sums, uncertainty allowances and contingency as distinct priced records.
 
-## 7. Deliver and verify
+### 7. Compare like-for-like scope where requested
+
+Preserve each original quotation, currency, price date and supplier total. Build a common scope/quantity/service-period matrix and list additions, omissions and exclusions. Show original price, evidenced comparison adjustments, normalised price and unpriced gaps separately; an incomplete quote cannot win by treating its gaps as zero. Reuse review-tender findings for material compliance differences rather than repeating an entire tender review. Price alternative ownership, extension or frequency scenarios only where they help the user's decision, and identify assumptions. Do not call a comparison adjustment an agreed supplier price.
+
+## Outputs
+
 
 Provide the scope matrix, resource/rate build-ups, quotation register, quantity basis,
 programme/service assumptions, exclusions, alternatives and total reconciliation.
@@ -132,3 +141,12 @@ for missing measurement/price inputs and `READY_FOR_QS_REVIEW` for supported dra
 Report supported and unresolved subtotals separately; never turn missing costs into zero.
 Check unit conversions, interval totals, durations, point/channel counts, shared costs,
 ownership, recurring fees, additions/omissions and presentation rounding before handover.
+
+## Completion checks
+
+- The output prices the requested scope and uses the same quantities/periods as the shared project basis.
+- Every rate/resource allowance has a quotation, cost record or clearly labelled assumption; no fabricated HK norm or mandatory percentage is embedded.
+- Inclusive installation coverage, ownership, shared crews/plant and recurring costs are allocated once.
+- System/point/station/visit units, periods, minimum hire and frequency requirements are consistent.
+- Supplier totals and comparison adjustments are distinguishable; unpriced gaps remain visible.
+- Totals reconcile, and supported items are separated from CALCULATION_ONLY scenarios and NEEDS_SOURCE inputs before READY_FOR_QS_REVIEW is used.

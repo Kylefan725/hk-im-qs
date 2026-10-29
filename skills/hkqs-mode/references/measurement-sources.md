@@ -30,7 +30,7 @@ Internal cost components can be separated for estimating even where one inclusiv
 - CEDD's GS catalogue lists the **2020 Edition**, with the inspected Volume 1 Rev.8 incorporating **Amendment 3/2026**. Verify which amendments the project incorporates; the latest web file does not amend a signed contract by itself.
 - GS and SMM section numbering differ. GS **Section 7 Part 2** concerns GI and **Part 6** instrumentation; SMM **Section 2** concerns GI. Do not cross-apply clause numbers.
 - A technical specification establishes performance/scope. The contract and measurement documents establish payment treatment. A guidance note supports the appropriate technical context.
-- Use the particular monitoring plan to define location, accuracy, stage, frequency, trigger/action requirements and roles. These skills supply no numerical engineering defaults.
+- Use the particular monitoring plan to define location, accuracy, stage, frequency, trigger/action requirements and roles. This workflow supplies no numerical engineering defaults.
 
 ## Obtain and preserve evidence
 

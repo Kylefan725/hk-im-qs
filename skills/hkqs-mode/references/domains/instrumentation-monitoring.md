@@ -1,17 +1,25 @@
----
-name: hkqs-instrumentation-monitoring
-description: Measure and review Hong Kong instrumentation and monitoring packages, including ADMS/automated total stations, prisms, settlement points, piezometers, standpipes, inclinometers, tilt/vibration sensors and data acquisition. Use for instrument schedules, BOQs, baseline/routine/event monitoring, duration and frequency quantities, installation interfaces, maintenance and handover scope.
----
-
 # Hong Kong instrumentation and monitoring QS
 
-Read [hkqs-general](../hkqs-general/SKILL.md) first. Use the [measurement source map](../hkqs-general/references/measurement-sources.md), [source register](../hkqs-general/references/source-register.json) and [output templates](../hkqs-general/references/output-templates.md). Read only the relevant adopted documents.
+Use this domain reference only for a package selected by [hkqs-mode](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
+
+Read [project basis and evidence controls](../project-basis.md) first. Use the [measurement source map](../measurement-sources.md), [source register](../source-register.json) and [output templates](../output-templates.md). Read only the relevant adopted documents.
+
+
+## Contents
+
+- [1. Fix the package boundary](#1-fix-the-package-boundary)
+- [2. Build the physical asset and location register](#2-build-the-physical-asset-and-location-register)
+- [3. Map activities to payable items](#3-map-activities-to-payable-items)
+- [4. Define the monitoring service denominator](#4-define-the-monitoring-service-denominator)
+- [5. Worked quantity comparison — hypothetical only](#5-worked-quantity-comparison--hypothetical-only)
+- [6. Assemble evidence and assess changes](#6-assemble-evidence-and-assess-changes)
+- [7. Deliver and check](#7-deliver-and-check)
 
 ## 1. Fix the package boundary
 
 Obtain the tender/contract BOQ, particular preambles, specification, I&M drawings/schedule, approved monitoring plan, installation details, programme, access arrangements and relevant instructions. Confirm who supplies the equipment, drills holes, installs cables, provides power/connectivity, operates the system, checks data, reports results, maintains assets and removes/hands them over.
 
-Record which work is included: standalone I&M, investigation plus instruments, or treatment plus I&M. Route associated boreholes to [ground investigation](../hkqs-ground-investigation/SKILL.md) and treatment interfaces to [ground improvement](../hkqs-ground-improvement/SKILL.md). Do not price another contractor's production works as part of the monitoring package.
+Record which work is included: standalone I&M, investigation plus instruments, or treatment plus I&M. For associated boreholes within the requested scope, use [ground investigation](ground-investigation.md) and for actual treatment interfaces use [ground improvement](ground-improvement.md). Do not price another contractor's production works as part of the monitoring package.
 
 Extract the engineer-approved purpose, accuracy/range, monitoring locations and control requirements. Record unresolved engineering choices for the responsible engineer. Do not decide acceptable deformation, control-point layout, trigger values, reading intervals or resumption of works from a QS cost assumption.
 
@@ -86,7 +94,7 @@ Link each claimed unit to the installed asset register, approved installation/as
 
 Check the actual contract treatment of incomplete service. Do not automatically treat downtime as payable, apply an invented availability penalty or deduct the whole month. Log the fact and request the agreed assessment rule where missing.
 
-For extra instruments, emergency visits, increased frequency, night work, extension of duration or relocation: compare instructed scope against priced inclusions; record who instructed what and when, contractual authority, notice/service evidence, resource effect and remaining mitigation. Use [valuation and variations](../hkqs-valuation-variations/SKILL.md) for entitlement and [cost estimation](../hkqs-cost-estimation/SKILL.md) for the build-up.
+For extra instruments, emergency visits, increased frequency, night work, extension of duration or relocation: compare instructed scope against priced inclusions; record who instructed what and when, contractual authority, notice/service evidence, resource effect and remaining mitigation. Use [valuation and variations](../valuation-rules.md) for entitlement and [cost estimation](../../playbooks/estimate-and-compare-quotes.md) for the build-up.
 
 ## 7. Deliver and check
 

@@ -10,20 +10,42 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED = {
+EXPECTED = {'hkqs-mode'}
+LEGACY_SKILLS = {
     'hkqs-general', 'hkqs-instrumentation-monitoring', 'hkqs-ground-investigation',
     'hkqs-ground-improvement', 'hkqs-cost-estimation', 'hkqs-valuation-variations',
     'hkqs-tender-review',
 }
+SKILL_PATH = Path('skills/hkqs-mode')
+PLAYBOOKS = {
+    'review-tender', 'measure-quantities', 'estimate-and-compare-quotes',
+    'value-progress', 'assess-change', 'explain-documents',
+}
+REQUIRED_ROUTER_LINKS = {
+    *(f'playbooks/{name}.md' for name in PLAYBOOKS),
+    'references/project-basis.md',
+    'references/domains/instrumentation-monitoring.md',
+    'references/domains/ground-investigation.md',
+    'references/domains/ground-improvement.md',
+}
+PLAYBOOK_HEADINGS = {'Inputs', 'Steps', 'Outputs', 'Completion checks'}
 SOURCE_PREFIX = r'(?:CEDD|GEO|LESB|DEVB|NEC|CSD)-[A-Z0-9-]+'
 STATES = {'CALCULATION_ONLY', 'NEEDS_SOURCE', 'READY_FOR_QS_REVIEW'}
 
 
+def markdown_links(content: str) -> list[str]:
+    return re.findall(r'\[[^\]]*\]\(([^)]+)\)', content)
+
+
 def validate(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    actual = {p.parent.name for p in (root / 'skills').glob('*/SKILL.md')}
-    if actual != EXPECTED:
-        errors.append(f'Skill set mismatch: missing={sorted(EXPECTED-actual)}, extra={sorted(actual-EXPECTED)}')
+    skill_root = root / SKILL_PATH
+    expected_paths = {SKILL_PATH / 'SKILL.md'}
+    actual_paths = {p.relative_to(root) for p in (root/'skills').rglob('SKILL.md')}
+    if actual_paths != expected_paths:
+        missing = sorted(str(p) for p in expected_paths - actual_paths)
+        extra = sorted(str(p) for p in actual_paths - expected_paths)
+        errors.append(f'Exactly one entry skill required: missing={missing}, extra={extra}')
     for name in sorted(EXPECTED):
         path = root / 'skills' / name / 'SKILL.md'
         if not path.is_file():
@@ -45,13 +67,27 @@ def validate(root: Path = ROOT) -> list[str]:
             errors.append(f'{name}: invalid skill name')
         if len(content.splitlines()) > 500:
             errors.append(f'{name}: exceeds 500-line skill limit')
-        if name != 'hkqs-general' and '../hkqs-general/SKILL.md' not in content:
-            errors.append(f'{name}: missing core dependency')
+        router_links = {unquote(link.split('#', 1)[0]) for link in markdown_links(content)}
+        for link in sorted(REQUIRED_ROUTER_LINKS - router_links):
+            errors.append(f'{name}: missing router link {link}')
         for state in STATES:
             if state not in content:
                 errors.append(f'{name}: missing status {state}')
 
-    registry_path = root / 'skills/hkqs-general/references/source-register.json'
+    actual_playbooks = {p.stem for p in (skill_root/'playbooks').glob('*.md')}
+    if actual_playbooks != PLAYBOOKS:
+        errors.append('Playbook set mismatch: '
+                      f'missing={sorted(PLAYBOOKS-actual_playbooks)}, '
+                      f'extra={sorted(actual_playbooks-PLAYBOOKS)}')
+    for name in sorted(PLAYBOOKS & actual_playbooks):
+        content = (skill_root/'playbooks'/f'{name}.md').read_text(encoding='utf-8')
+        headings = set(re.findall(r'^## (.+?)\s*$', content, re.M))
+        for heading in sorted(PLAYBOOK_HEADINGS - headings):
+            errors.append(f'{name}: missing playbook heading {heading}')
+    if not (skill_root/'references/valuation-rules.md').is_file():
+        errors.append('Missing shared valuation rules')
+
+    registry_path = skill_root / 'references/source-register.json'
     try:
         registry = json.loads(registry_path.read_text(encoding='utf-8'))
         entries = registry['sources']
@@ -80,12 +116,18 @@ def validate(root: Path = ROOT) -> list[str]:
             errors.append(f'Missing document: {path.relative_to(root)}')
             continue
         content = path.read_text(encoding='utf-8')
-        for target in re.findall(r'\[[^\]]*\]\(([^)]+)\)', content):
+        for target in markdown_links(content):
             if target.startswith(('https://', 'http://', '#', 'mailto:')):
                 continue
-            resolved = (path.parent / unquote(target.split('#', 1)[0])).resolve()
+            local_target = unquote(target.split('#', 1)[0])
+            resolved = (path.parent / local_target).resolve()
+            parts = Path(local_target).parts
+            if any(name in parts for name in LEGACY_SKILLS) and parts[-1:] == ('SKILL.md',):
+                errors.append(f'{path.relative_to(root)}: legacy skill link {target}')
             if not resolved.is_relative_to(root.resolve()) or not resolved.exists():
                 errors.append(f'{path.relative_to(root)}: broken local link {target}')
+            elif path.is_relative_to(skill_root) and not resolved.is_relative_to(skill_root.resolve()):
+                errors.append(f'{path.relative_to(root)}: link leaves the installable skill {target}')
         for source_id in set(re.findall(r'`(' + SOURCE_PREFIX + r')`', content)):
             if source_id not in ids:
                 errors.append(f'{path.relative_to(root)}: unknown source ID {source_id}')
@@ -100,8 +142,10 @@ def main() -> int:
     if errors:
         print('\n'.join('ERROR: '+item for item in errors))
         return 1
-    registry = json.loads((ROOT/'skills/hkqs-general/references/source-register.json').read_text())
-    print(f'PASS: {len(EXPECTED)} skills, {len(registry["sources"])} source entries, frontmatter, local links and evidence references')
+    registry = json.loads((ROOT/SKILL_PATH/'references/source-register.json').read_text())
+    print(f'PASS: {len(EXPECTED)} entry skill, {len(PLAYBOOKS)} playbooks, '
+          f'{len(registry["sources"])} source entries, frontmatter, '
+          'self-contained links and evidence references')
     print('Structural validation only; source applicability and professional decisions require review.')
     return 0
 

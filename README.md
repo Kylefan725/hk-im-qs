@@ -1,115 +1,125 @@
-# Hong Kong I&M Quantity Surveying Skills
+# HKQS mode — Hong Kong I&M quantity surveying
 
-Seven focused AI skills for **instrumentation and monitoring (I&M), ground investigation involving instruments, and ground improvement involving instruments** in Hong Kong.
+**One entry skill. Describe the result you need; `hkqs-mode` selects and runs the relevant playbooks.**
 
-Adapted from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills). The original's Australian building measurement and broad cost-management modules have been replaced with specialist Hong Kong workflows. Original MIT attribution is retained in [LICENSE](LICENSE). See [migration and scope](docs/MIGRATION.md).
+Use it for **instrumentation and monitoring (I&M), ground investigation involving instruments, and ground improvement involving instruments** in Hong Kong. It handles tender reviews, measurements, estimates, payment valuations, changes and sourced document questions through one coordinated workflow.
 
-[繁體中文說明](README.zh-HK.md)
+[繁體中文說明](README.zh-HK.md) · [Entry skill](skills/hkqs-mode/SKILL.md) · [Router design](docs/ROUTER-DESIGN.md) · [Upgrade from seven skills](docs/MIGRATION.md)
 
-## What this version does
+## Start with the task
 
-Review specialist tender scope, build an auditable BOQ/quantity schedule, develop rates from quotations and resources, reconcile progress valuations, and assess monitoring extensions or instructed changes. Link instruments, boreholes, treatment zones, accepted observations, service periods and bill items through stable IDs.
+For a host that exposes skills as slash commands:
 
-Select one of three package modes:
-
-- **I&M only:** instrument supply/install, baseline, monitoring, data services, maintenance and close-out, with associated works only where in this package.
-- **GI with I&M:** investigation/instrument boreholes, specified testing and instrument-installation/monitoring interfaces.
-- **Ground improvement with I&M:** treatment trials, production and verification linked to the monitoring package and approved control plan.
-
-This is a QS workflow toolkit. Engineering design, instrument selection adequacy, trigger values, treatment parameters and technical acceptance remain with the responsible engineer. A source-supported draft is ready for review, not a certificate or permission to continue works.
-
-## Seven skills
-
-| Skill | Main work |
-|---|---|
-| [hkqs-general](skills/hkqs-general/SKILL.md) | Scope, project documents, adopted editions, contract route, evidence and task routing |
-| [hkqs-instrumentation-monitoring](skills/hkqs-instrumentation-monitoring/SKILL.md) | Instrument/point register, ADMS, monitoring stages, duration/frequency and payment denominators |
-| [hkqs-ground-investigation](skills/hkqs-ground-investigation/SKILL.md) | Hole intervals, tests, instrument installations, groundwater records and GI/I&M interfaces |
-| [hkqs-ground-improvement](skills/hkqs-ground-improvement/SKILL.md) | Trials, treatment quantities, overlapping zones/passes, verification and I&M interfaces |
-| [hkqs-cost-estimation](skills/hkqs-cost-estimation/SKILL.md) | Supplier/resource-based rates, purchase/rental, telemetry, attendance, recurring cost and scenarios |
-| [hkqs-valuation-variations](skills/hkqs-valuation-variations/SKILL.md) | Measured progress, cumulative payments, changes, extensions, notice evidence and contract routes |
-| [hkqs-tender-review](skills/hkqs-tender-review/SKILL.md) | BOQ/specification/quote reconciliation, responsibility matrix, gaps and focused RFIs |
-
-Load the general core and only the specialists needed for the current task. Install all seven together because they use sibling references and one shared source register.
-
-## Hong Kong documents used
-
-The [source register](skills/hkqs-general/references/source-register.json) records **18 official sources**, verified on **29 October 2026**, with edition, URL, evidence level and applicability limits. Principal references are:
-
-| Purpose | Reference route |
-|---|---|
-| Measurement/payment coverage | CEDD **Standard Method of Measurement for Civil Engineering Works, 1992 Edition**, consolidated through Corrigendum 1/2011, plus adopted particular preambles |
-| GI, grouting and instrumentation technical scope | CEDD **General Specification for Civil Engineering Works, 2020 Edition**, Volume 1 Section 7 Parts 2, 4 and 6; selected consolidated amendment set |
-| Investigation/logging context | GEO **Geoguide 2** and **Geoguide 3**, 2017 consolidated versions |
-| Monitoring surveys | **Engineering Survey Practice Guides for Works Projects**, August 2025 update, Chapter 7 |
-| Geotechnical monitoring/control | **GEO Publication 1/2023**, **TGN54** and relevant project-approved I&M documents |
-| Treatment verification and marine context | **TGN18**, and relevant **Port Works Design Manual Parts 3/4** when the marine scope fits |
-| Contract and payment administration | Actual GCC/NEC/bespoke subcontract documents, relevant PAH chapter, and verified statutory/contractual payment provisions |
-
-Use the edition incorporated into the project. The newest publication does not retrospectively amend a contract. The general building HKSMM/ArchSD elemental route is not part of this focused version.
-
-The repository contains original instructions and links, not full source publications. Public availability does not mean unrestricted redistribution. Obtain any authorised NEC base contract or other licensed project document needed for a live task. See [source handling](docs/README.md).
-
-## Commercial controls that matter
-
-- **Separate cost from payment.** An internal allowance for calibration, maintenance or readings does not establish a separate payable BOQ item. Check the adopted inclusive coverage first.
-- **Define the denominator.** System-month, station-month, point-month, reading set and site visit are different measures. A data upload interval is not automatically a payable observation.
-- **Link physical work to evidence.** Drilled depth, recovered core, casing length and installed instrument count are different records. Two treatment passes do not automatically double net treated-ground volume.
-- **Keep contract routes separate.** GCC changes, NEC compensation events and bespoke subcontract provisions require their actual wording. Upstream obligations do not automatically flow down.
-- **Preserve uncertainty.** Use `CALCULATION_ONLY`, `NEEDS_SOURCE` and `READY_FOR_QS_REVIEW` per row. Continue supported work and isolate missing sources or unresolved amounts.
-- **Use real price evidence.** No fabricated Hong Kong market rates, universal percentages, notice periods or engineering thresholds are embedded.
-
-## Install from a local checkout
-
-Python 3 is required only for the installer and validation tools. The skills themselves are Markdown and JSON/YAML reference files. The installer creates each individual skill beneath an existing skills directory and refuses to overwrite any existing destination.
-
-```bash
-# Run from this repository. Preview first; this writes nothing.
-python3 scripts/install_skills.py --target ~/.claude/skills --dry-run
-
-# Install per-skill symlinks: updates in this checkout are immediately reflected.
-python3 scripts/install_skills.py --target ~/.claude/skills --mode symlink
-
-# Or use copies where symlinks are unsuitable; later updates require replacing the copies.
-python3 scripts/install_skills.py --target ~/.claude/skills --mode copy
+```text
+/hkqs-mode Review this I&M tender and compare the two ADMS quotations.
+Show missing scope, comparable costs and the RFIs in Traditional Chinese.
 ```
 
-For a project-scoped Claude installation, use `.claude/skills` as the target from that project's intended working directory, or give its absolute path. For a Codex installation, supply the skills directory supported by your environment explicitly. Do not replace an entire existing skills directory with this repository.
+Attach or explicitly select `hkqs-mode` using your host's supported skill mechanism. The skill also describes natural-language triggers, but automatic discovery and invocation depend on the host. No pstack installation or specific model is required.
 
-Windows PowerShell example:
+You do not choose or install a separate skill for each workstream. The router identifies the requested outcome, reads the appropriate internal playbook, loads the necessary domain references and delivers one checked answer. Internal playbooks have no separate slash commands.
 
-```powershell
-python scripts/install_skills.py --target "$env:USERPROFILE\.claude\skills" --mode copy
+## How routing works
+
+The design follows the routing pattern of [Lauren Tan's pstack poteto-mode](https://github.com/cursor/plugins/blob/1ba91fc25c0977741dd0e267849e6234b037ed0a/pstack/skills/poteto-mode/SKILL.md): select the workflow, track its steps, load supporting material when needed and verify the actual result. The QS instructions and playbooks are written for this package. [Design and provenance](docs/ROUTER-DESIGN.md) explains the adaptations.
+
+Two decisions work together:
+
+1. **What result does the user need?** This selects the playbook.
+2. **Which works are involved?** This selects I&M, GI and/or ground-improvement references.
+
+```mermaid
+flowchart TD
+    A[User request] --> B[hkqs-mode]
+    B --> C[Requested outcome]
+    B --> D[Project and work domains]
+    C --> E[Selected playbook sequence]
+    D --> E
+    E --> F[Produce and reconcile outputs]
+    F --> G[One answer with evidence]
 ```
 
-If received as a Git bundle, restore the complete repository first:
+| Requested outcome | Internal playbook | Main result |
+|---|---|---|
+| Review tender/quotation scope or compliance | [Review tender](skills/hkqs-mode/playbooks/review-tender.md) | Scope and responsibility matrix, coverage findings and RFIs |
+| Measure records/drawings or prepare a BOQ | [Measure quantities](skills/hkqs-mode/playbooks/measure-quantities.md) | Traceable quantity ledger and proposed bill items |
+| Build rates, price a package or compare quotations | [Estimate and compare quotations](skills/hkqs-mode/playbooks/estimate-and-compare-quotes.md) | Resource build-ups, comparable scope/costs and explicit gaps |
+| Prepare a monthly valuation/payment reconciliation | [Value progress](skills/hkqs-mode/playbooks/value-progress.md) | Cumulative valuation, current amount and separate cash reconciliation |
+| Assess extra work, changed frequency or an extension | [Assess change](skills/hkqs-mode/playbooks/assess-change.md) | Baseline-to-change assessment, quantity/cost delta and evidence position |
+| Explain a requirement, inclusion, clause or edition | [Explain documents](skills/hkqs-mode/playbooks/explain-documents.md) | A sourced answer at the requested depth |
+
+A monthly valuation for ground improvement therefore follows **value-progress**, with ground-improvement and I&M references. A question about whether instrument installation includes readings follows **explain-documents**. A budget for two extra monitoring months follows **estimating**; a question about claiming them follows **assess-change**.
+
+For a combined task, the router composes the necessary steps and reuses one project basis, quantity ledger and coverage matrix. It asks only for missing facts that materially change the result. Independent checks can be delegated when useful and supported; a single agent can execute the same playbooks.
+
+## What the single skill contains
+
+- One discoverable `SKILL.md` in `skills/hkqs-mode/`.
+- Six internal playbooks, each with inputs, ordered steps, outputs and completion checks.
+- Three domain references for I&M, instrumented GI and instrumented ground improvement.
+- Shared project/evidence controls, valuation rules, source notes and output templates.
+- A register of **18 official Hong Kong reference sources**, with edition, URL, evidence level and applicability limits.
+
+The three package modes remain `I&M_ONLY`, `GI_WITH_I&M` and `GROUND_IMPROVEMENT_WITH_I&M`. A task can cover several packages, each with its own adopted measurement and contract basis.
+
+This is a QS workflow toolkit. Instrument locations, technical performance, trigger/action levels, treatment parameters, acceptance and permission to resume work remain with the responsible engineer. Outputs distinguish `CALCULATION_ONLY`, `NEEDS_SOURCE` and `READY_FOR_QS_REVIEW` at the affected row or conclusion.
+
+## Hong Kong document basis
+
+The [source register](skills/hkqs-mode/references/source-register.json), checked on **29 October 2026**, includes:
+
+| Purpose | Principal reference route |
+|---|---|
+| Measurement and inclusive payment coverage | CEDD Standard Method of Measurement for Civil Engineering Works, 1992 Edition, with adopted corrigenda and particular preambles |
+| GI, grouting and instrumentation technical scope | CEDD General Specification for Civil Engineering Works, 2020 Edition, Volume 1 Section 7 Parts 2, 4 and 6, with the adopted amendments |
+| Investigation and ground descriptions | GEO Geoguide 2 and Geoguide 3, 2017 consolidated versions |
+| Survey monitoring | Engineering Survey Practice Guides for Works Projects, August 2025 update, Chapter 7 |
+| Geotechnical monitoring/control | GEO Publication 1/2023, TGN54 and project-approved I&M documents |
+| Treatment verification and relevant marine work | TGN18 and applicable Port Works Design Manual Parts 3/4 |
+| Contract/payment administration | Actual GCC/NEC/bespoke subcontract documents and relevant PAH/statutory provisions |
+
+Use the edition incorporated into the project and retrieve the actual relevant clauses. The register distinguishes reviewed passages from verified publication metadata; it is not a claim that every source was read in full. Source books and private project records are not distributed here. See [source handling](docs/README.md).
+
+## Install one skill
+
+Clone the repository, then give the installer your host's actual user/project skills directory. Python 3 is required for the installer and validator only.
 
 ```bash
-git clone qs-skills-hk-im.bundle qs-skills-hk
+git clone https://github.com/Kylefan725/qs-skills-hk.git
 cd qs-skills-hk
-git switch hong-kong-edition
+
+# Replace this example target with the directory supported by your host.
+python3 scripts/install_skills.py --target /path/to/your/skills --dry-run
+python3 scripts/install_skills.py --target /path/to/your/skills --mode copy
 ```
 
-Installation into ChatGPT's personal Skills directory is a separate action; this repository does not claim it has been installed there.
+Copy mode places the complete self-contained `hkqs-mode` folder under that target. Symlink mode is available with `--mode symlink`; keep this checkout at its original location and pull updates there. Neither mode overwrites an existing destination or unrelated skills.
+
+**Upgrading from v0.1.0:** the seven previous entry skills have become internal material. The installer detects their names, including broken old symlinks, and stops before writing. Archive those entries outside your active skills directory using the [migration instructions](docs/MIGRATION.md), then install the single entry. This repository has not installed anything into your personal Skills directory automatically.
 
 ## Example requests
 
-> Review this I&M tender and identify unclear instrument counts, monitoring duration, reading frequency, maintenance and borehole interfaces. Produce a responsibility matrix and RFIs in Traditional Chinese.
+```text
+/hkqs-mode Check the drilled lengths and piezometer installations in these logs.
+Show raw quantities, proposed payable quantities and any inclusive-rate overlap.
 
-> Use the specified CEDD measurement basis to reconcile these drilling logs and piezometer installations. Show raw quantities, payable quantities, included activities and missing evidence separately.
+/hkqs-mode Prepare this month's ground-improvement valuation and assess the
+additional monitoring period. Keep unsupported entitlement and unpaid cash separate.
 
-> Compare two ADMS quotations on the same system scope, six-month service period, acceptance requirements and reporting obligations. Show equipment ownership, monthly costs and extension scenarios.
+/hkqs-mode Does this adopted instrument-installation item include readings?
+Explain the clause and the effect of this particular preamble only.
 
-> Prepare the monthly valuation for instrumented ground improvement. Reconcile treatment zones, verification tests, monitoring periods, previous certificates, retention and outstanding cash receipts.
+/hkqs-mode 比較這兩份 ADMS 報價，按相同監測點數、工期、維修及報告要求比較，
+並列出未有報價或定義不清的項目。
+```
 
 ## Validate and maintain
 
 ```bash
 python3 scripts/validate_repository.py
+python3 -m unittest discover -s tests -v
 ```
 
-This checks the seven-skill structure, frontmatter, relative references, source IDs, source metadata and distribution exclusions. It does not certify technical/legal correctness or prove future URLs remain current. Practical checks are recorded in [VALIDATION.md](docs/VALIDATION.md).
+The validator checks one skill entry, six playbooks, source metadata and local/self-contained links. Tests cover installation and migration conflicts. These do not prove an LLM will always route correctly or replace a professional review; practical routing checks and their limits are recorded in [VALIDATION.md](docs/VALIDATION.md).
 
-When updating, verify publisher revisions, preserve contract applicability, amend the shared source register, then review affected workflows. Do not bulk-import source standards or confidential project records. Keep examples synthetic and label assumptions.
-
-**Adaptation version:** `0.1.0-hk-im` — specialist Hong Kong I&M scope.
+Adapted from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills), with the original [MIT notice](LICENSE) retained. **Version `0.2.0-hk-im`** changes the installation layout from seven skills to one router.

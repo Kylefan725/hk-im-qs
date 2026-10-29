@@ -1,6 +1,6 @@
 # Hong Kong ground-improvement and instrumentation references
 
-Checked **29 October 2026**. Use these official sources for the specified scope and inspected passages. Adoption by a contract and applicability to a particular technique still require project evidence. The original QS workflow in `hkqs-ground-improvement` is not a reproduction of these documents.
+Checked **29 October 2026**. Use these official sources for the specified scope and inspected passages. Adoption by a contract and applicability to a particular technique still require project evidence. The original QS guidance in [the ground-improvement reference](domains/ground-improvement.md) is not a reproduction of these documents.
 
 ## Verified sources
 
@@ -18,7 +18,7 @@ Checked **29 October 2026**. Use these official sources for the specified scope 
 
 - **Scope and records:** The inspected GS grouting clauses locate trials, instrument-based observation and record obligations. They do not establish a separate payment item merely because a task is technically required. Retrieve both technical and commercial provisions for a valuation.
 - **Marine scope:** PWDM Parts 3 and 4 are marine/reclamation references. Use them when relevant to the project; do not describe them as a universal Hong Kong ground-improvement specification.
-- **Engineering authority:** TGN54 contains context-dependent engineering recommendations. This skill intentionally supplies no numerical trigger defaults. Obtain the approved project monitoring/response plan and the responsible engineer's decisions.
+- **Engineering authority:** TGN54 contains context-dependent engineering recommendations. This workflow intentionally supplies no numerical trigger defaults. Obtain the approved project monitoring/response plan and the responsible engineer's decisions.
 - **Verification:** TGN18 concerns acceptance of new QC techniques; it does not approve a particular test for this project. Record the adopted method, interpretation basis, acceptance criteria and reviewing authority.
 - **Technique coverage:** Mixing, jet/permeation/compaction grouting, granular columns, compaction, vertical drains, preload and vacuum treatment require technique-specific project definitions. Listing them in a QS checklist does not claim each is fully specified by GS Section 7 Part 4.
 - **Section identity:** GS2020 Section 25 concerns environmental protection and Section 26 concerns trees. Neither is a general ground-improvement or instrumentation section. Read the contents and actual clause rather than guessing section numbers.

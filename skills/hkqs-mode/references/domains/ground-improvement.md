@@ -1,13 +1,23 @@
----
-name: hkqs-ground-improvement
-description: Prepare Hong Kong QS scope, bills, tender comparisons, estimates and valuations for ground improvement packages with instrumentation, monitoring, field trials or verification. Use for project-adopted grouting, mixing, granular columns, compaction, drainage, preloading or vacuum treatment and their instrumented interfaces; keep engineering design and acceptance with the responsible specialist.
----
-
 # Ground improvement with instrumentation — Hong Kong QS
 
-Read [hkqs-general](../hkqs-general/SKILL.md) first and [ground-improvement sources](../hkqs-general/references/ground-improvement-sources.md) before selecting technical references. Use [instrumentation and monitoring](../hkqs-instrumentation-monitoring/SKILL.md) for the instrument/service schedule.
+Use this domain reference only for a package selected by [hkqs-mode](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
 
-Limit this skill to commercial and measurement work for instrumented ground-improvement packages. Treat named methods below as possible project-adopted methods, not as methods all covered by one Hong Kong standard. The workflows and examples are original; they do not replace technical specifications or create payment rights.
+Read [project basis and evidence controls](../project-basis.md) first and [ground-improvement sources](../ground-improvement-sources.md) before selecting technical references. Read [instrumentation and monitoring](instrumentation-monitoring.md) when the selected task needs the instrument/service schedule.
+
+Limit this reference to commercial and measurement work for instrumented ground-improvement packages. Treat named methods below as possible project-adopted methods, not as methods all covered by one Hong Kong standard. The workflows and examples are original; they do not replace technical specifications or create payment rights.
+
+
+## Contents
+
+- [1. Fix the treatment and commercial basis](#1-fix-the-treatment-and-commercial-basis)
+- [2. Build a scope matrix before pricing](#2-build-a-scope-matrix-before-pricing)
+- [3. Maintain three linked ledgers](#3-maintain-three-linked-ledgers)
+- [4. Resolve method-specific measurement questions](#4-resolve-method-specific-measurement-questions)
+- [5. Tie instruments to treatment stages](#5-tie-instruments-to-treatment-stages)
+- [6. Normalise tenders and build the estimate](#6-normalise-tenders-and-build-the-estimate)
+- [7. Prepare valuation and change records](#7-prepare-valuation-and-change-records)
+- [8. Check with a transparent geometric example](#8-check-with-a-transparent-geometric-example)
+- [9. Deliver and apply status](#9-deliver-and-apply-status)
 
 ## 1. Fix the treatment and commercial basis
 

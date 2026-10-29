@@ -1,17 +1,25 @@
----
-name: hkqs-valuation-variations
-description: Prepare Hong Kong specialist subcontract interim valuations, payment reconciliations and change estimates for instrumentation and monitoring, instrumented ground investigation and ground improvement. Use for measured progress, monitoring extensions, standby, remobilisation, instructed changes and evidence-based contract review.
----
-
 # Specialist valuations, changes and payment reconciliation
 
-Read [hkqs-general](../hkqs-general/SKILL.md) first, then
-[cost and contract sources](../hkqs-general/references/cost-contract-sources.md) and the
-[source register](../hkqs-general/references/source-register.json).
+Use this shared reference for the [progress valuation](../playbooks/value-progress.md) or [change assessment](../playbooks/assess-change.md) playbook selected by [hkqs-mode](../SKILL.md). Apply only the sections needed for that decision and produce the calling playbook's required outputs; do not turn a payment reconciliation into an unsolicited change claim or notice.
+
+Read [project basis and evidence controls](project-basis.md) first, then
+[cost and contract sources](cost-contract-sources.md) and the
+[source register](source-register.json).
 Relevant sources: `CEDD-SMM-1992`, `CEDD-GS-2020`, `CEDD-PAH-2024`,
 `DEVB-CONTRACTS`, `DEVB-NEC-HK`, `NEC-ECC-HK`, `DEVB-SOPO`,
 `DEVB-SOPP-2021` and `CSD-CONSTRUCTION`. Confirm adoption and current applicability.
 Prepare drafts for the authorised person; do not issue notices or certify payment.
+
+
+## Contents
+
+- [1. Identify the contract and payment mechanism](#1-identify-the-contract-and-payment-mechanism)
+- [2. Assemble the valuation evidence](#2-assemble-the-valuation-evidence)
+- [3. Measure progress and recurring services](#3-measure-progress-and-recurring-services)
+- [4. Assess changes in two stages](#4-assess-changes-in-two-stages)
+- [5. Preserve notice and payment deadlines](#5-preserve-notice-and-payment-deadlines)
+- [6. Reconstruct cumulative payment](#6-reconstruct-cumulative-payment)
+- [7. Deliver and reconcile](#7-deliver-and-reconcile)
 
 ## 1. Identify the contract and payment mechanism
 
@@ -124,8 +132,10 @@ separately; the current certificate remains HK$20,000 under this reconstruction.
 
 ## 7. Deliver and reconcile
 
-Provide a measured-work schedule, cumulative valuation, change register, notice/action
-table and separate certified-versus-paid ledger, with exact sources and unresolved items.
+Provide the selected playbook's required outputs: use a measured-work schedule, cumulative
+valuation and separate certified-versus-paid ledger for progress/payment work; use a change
+register and notice/action table where the task involves changes or deadlines. Include exact
+sources and unresolved items without generating unrelated schedules.
 Use `NEEDS_SOURCE` for missing entitlement/rules, `CALCULATION_ONLY` for unsupported
 scenarios and `READY_FOR_QS_REVIEW` for supported draft valuations.
 Reconcile current/cumulative quantities, additions/omissions, retention movements,

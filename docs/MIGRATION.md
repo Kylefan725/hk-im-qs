@@ -1,29 +1,37 @@
-# Adaptation scope and provenance
+# Migration to the single HKQS entry
 
-## Upstream
+## Current version
 
-- Repository: [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills)
-- Reviewed baseline commit: `f7e43136b454ec7dba0d39c1ae70e8fb3e4a63fe`
-- Upstream structure: 10 ANZSMM building measurement skills and 9 ACMM cost-management skills.
-- Licence: original MIT notice retained. It covers repository skill text, not third-party standards.
+**v0.2.0-hk-im** replaces the seven discoverable v0.1.0 skills with one self-contained `hkqs-mode` skill. The previous commercial and domain guidance is retained as internal playbooks and references. This is a breaking installation-layout change in the pre-1.0 series.
 
-## Requested scope
-
-The Hong Kong adaptation is limited to instrumentation and monitoring, associated ground investigation with instruments, and ground improvement with instruments. It does not preserve the original general building-trade curriculum.
-
-| Upstream function | Focused replacement |
+| Previous entry | New internal location |
 |---|---|
-| General measurement | hkqs-general and adopted CEDD/project measurement basis |
-| Building trade measurement | Removed from active skills; specialist I&M, GI and ground-improvement workflows added |
-| Budgets and services pricing | hkqs-cost-estimation with specialist quotes, resources and service-period drivers |
-| Construction cost management | hkqs-valuation-variations and hkqs-tender-review |
-| ACMM element classifications and area rules | Removed from this package |
-| Generic building life-cycle comparison | Removed; ownership, recurring monitoring/rental and close-out costs remain in specialist estimates |
+| hkqs-general | [Project basis](../skills/hkqs-mode/references/project-basis.md) and the [router](../skills/hkqs-mode/SKILL.md) |
+| hkqs-instrumentation-monitoring | [I&M domain reference](../skills/hkqs-mode/references/domains/instrumentation-monitoring.md) |
+| hkqs-ground-investigation | [GI domain reference](../skills/hkqs-mode/references/domains/ground-investigation.md) |
+| hkqs-ground-improvement | [Ground-improvement domain reference](../skills/hkqs-mode/references/domains/ground-improvement.md) |
+| hkqs-cost-estimation | [Estimate/compare playbook](../skills/hkqs-mode/playbooks/estimate-and-compare-quotes.md) |
+| hkqs-valuation-variations | [Value progress](../skills/hkqs-mode/playbooks/value-progress.md), [assess change](../skills/hkqs-mode/playbooks/assess-change.md), and [shared valuation rules](../skills/hkqs-mode/references/valuation-rules.md) |
+| hkqs-tender-review | [Review tender](../skills/hkqs-mode/playbooks/review-tender.md) |
 
-New instructions are original workflow guidance. Australian numerical rules, item codes, cost examples, standard forms and area conventions were not relabelled as Hong Kong rules. Preserve the upstream baseline in Git history for provenance; it is not part of the active install set.
+Measurement and sourced document questions now have explicit task playbooks. The source register retains the same 18 official references and verification dates; consolidating the workflow does not re-verify every source or change a project's adopted edition.
 
-## Compatibility changes
+## Upgrade an existing installation
 
-All active skill names now start with `hkqs-`; the installer installs seven skills only. Install them together to preserve sibling references. Do not point an existing full skills directory at the repository root. Existing unrelated skills are not overwritten by the installer.
+1. Locate the actual active skills directory configured in your host. Inspect the seven previous `hkqs-*` entries listed above and retain any local customisation.
+2. Move those legacy entries to a backup directory **outside** the active skills directory. Keep copies if they contain local edits. If entries are symlinks, move the links themselves; do not follow them and move the repository's source directories. Broken legacy links still count as entries.
+3. Inspect any existing `hkqs-mode` destination before replacing it; the installer deliberately refuses to overwrite it. Archive your previous copy outside the active directory if you want to install this version again.
+4. From the updated repository, run the installer with your explicit target and `--dry-run`, then `--mode copy` or `--mode symlink` as appropriate. See [installation](../README.md#install-one-skill).
+5. Verify that the active installation exposes one entry named `hkqs-mode` and that its playbooks and references are present. Use your host's normal skill refresh/discovery mechanism if needed.
 
-Source metadata was checked on 29 October 2026. The source register differentiates inspected text from verified metadata; neither automatically proves project incorporation. Modern monitoring/data services and treatment techniques may require bespoke measurement provisions.
+The installer never deletes or archives user skills automatically. It detects all seven legacy names, including broken symlinks, and refuses to write until they are moved. Existing unrelated entries remain intact. Keeping the old skills active alongside the router would leave the fragmented interface in place, so this is not the default migration path.
+
+For a fresh installation, install only `skills/hkqs-mode/`; all internal dependencies travel with it. Do not replace an entire existing skills directory with this repository.
+
+## Provenance
+
+The repository originates from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills), reviewed at `f7e43136b454ec7dba0d39c1ae70e8fb3e4a63fe`. Its ten ANZSMM and nine ACMM building/cost-management modules were replaced in v0.1.0 by the focused Hong Kong package at `50f47f2534a5ec227160fe9cd871f431bc877266`.
+
+The current router follows the architectural pattern of pstack's `poteto-mode`; exact references and adaptations are in [ROUTER-DESIGN.md](ROUTER-DESIGN.md). Original MIT attribution is retained in [LICENSE](../LICENSE). The licence covers repository instructions/code, not third-party standards or private project documents.
+
+Prior versions remain in Git history. Australian numerical rules, cost examples or item codes were not relabelled as Hong Kong rules. General building-trade work remains outside this package.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the complete focused skill set without overwriting existing skills."""
+"""Install the self-contained hkqs-mode router without overwriting existing skills."""
 from __future__ import annotations
 
 import argparse
@@ -8,7 +8,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from validate_repository import EXPECTED, ROOT, validate
+from validate_repository import EXPECTED, LEGACY_SKILLS, ROOT, validate
 
 
 def main() -> int:
@@ -27,6 +27,11 @@ def main() -> int:
         parser.error('Target must not be inside the source skills directory.')
     if os.path.lexists(target) and not target.is_dir():
         parser.error('Target exists and is not a directory.')
+    legacy = [name for name in sorted(LEGACY_SKILLS) if os.path.lexists(target/name)]
+    if legacy:
+        parser.error('Nothing installed; legacy entry skills found: ' + ', '.join(legacy)
+                     + '. Archive these entries outside every active skills directory, '
+                       'then rerun. See docs/MIGRATION.md. No existing entries were changed.')
     conflicts = [name for name in sorted(EXPECTED) if os.path.lexists(target/name)]
     if conflicts:
         parser.error('Nothing installed; existing skill destinations: ' + ', '.join(conflicts))
@@ -58,7 +63,8 @@ def main() -> int:
                 shutil.rmtree(destination)
         print(f'Installation failed; newly created skill entries rolled back: {exc}', file=sys.stderr)
         return 1
-    print(f'Installed {len(created)} skills in {target}. Existing unrelated entries were preserved.')
+    print(f'Installed hkqs-mode with its playbooks and references in {target}. '
+          'Existing unrelated entries were preserved.')
     return 0
 
 

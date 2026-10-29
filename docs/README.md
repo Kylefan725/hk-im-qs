@@ -1,6 +1,6 @@
 # Source documents and project records
 
-This focused version uses official Hong Kong references for I&M and associated instrumented ground works. Start with the [source register](../skills/hkqs-general/references/source-register.json) and select the edition actually incorporated in the project.
+This focused version uses official Hong Kong references for I&M and associated instrumented ground works. Start with the [source register](../skills/hkqs-mode/references/source-register.json) and select the edition actually incorporated in the project.
 
 ## Working source set
 
@@ -19,9 +19,9 @@ For each applied rule retain the exact title, edition/revision, clause or printe
 
 ## Reference guides
 
-- [Measurement and I&M](../skills/hkqs-general/references/measurement-sources.md)
-- [Ground investigation](../skills/hkqs-general/references/ground-investigation-sources.md)
-- [Ground improvement](../skills/hkqs-general/references/ground-improvement-sources.md)
-- [Costs and contracts](../skills/hkqs-general/references/cost-contract-sources.md)
-- [Project basis template](../skills/hkqs-general/references/project-basis-template.yaml)
-- [Working output templates](../skills/hkqs-general/references/output-templates.md)
+- [Measurement and I&M](../skills/hkqs-mode/references/measurement-sources.md)
+- [Ground investigation](../skills/hkqs-mode/references/ground-investigation-sources.md)
+- [Ground improvement](../skills/hkqs-mode/references/ground-improvement-sources.md)
+- [Costs and contracts](../skills/hkqs-mode/references/cost-contract-sources.md)
+- [Project basis template](../skills/hkqs-mode/references/project-basis-template.yaml)
+- [Working output templates](../skills/hkqs-mode/references/output-templates.md)

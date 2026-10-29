@@ -1,25 +1,20 @@
----
-name: hkqs-general
-description: Route Hong Kong quantity surveying work for instrumentation and monitoring, ground investigation with instruments, and instrumented ground improvement. Use first for specialist tender scope, BOQs, quantity takeoff, rate build-ups, valuations and variations under project-specific measurement rules, CEDD/GEO references, GCC, NEC or bespoke subcontracts.
----
+# Project basis and evidence controls
 
-# Hong Kong specialist QS — I&M and instrumented ground works
-
-Use this core with the relevant specialist skill. Read only the specialist and source material needed for the task. Treat these instructions as an original QS workflow, not as the text of an official standard or a certification of compliance.
+Use this shared reference when the [hkqs-mode router](../SKILL.md) or selected playbook needs project scope, measurement or evidence controls. Populate only fields material to the current request; a narrow document question does not require a complete project setup. Read the relevant domain reference and source passage on demand. Treat these instructions as an original QS workflow, not as the text of an official standard or a certification of compliance.
 
 ## Scope boundary
 
-Cover instrumentation and monitoring (I&M), associated instrumented ground investigation, and ground improvement packages involving instruments. Select `I&M_ONLY`, `GI_WITH_I&M`, or `GROUND_IMPROVEMENT_WITH_I&M` from the actual scope. In I&M-only work, cost drilling, treatment, access or reinstatement only where it belongs to that package; show interfaces owned by others. Do not expand to unrelated building trades, whole-building elemental cost planning or general civil works.
+Cover instrumentation and monitoring (I&M), associated instrumented ground investigation, and ground improvement packages involving instruments. Assign `I&M_ONLY`, `GI_WITH_I&M`, or `GROUND_IMPROVEMENT_WITH_I&M` to each relevant package from its actual scope. A single request may cover several scope modes; retain package IDs and a separate adopted measurement/contract basis for each instead of forcing one mode onto the whole request. In I&M-only work, cost drilling, treatment, access or reinstatement only where it belongs to that package; show interfaces owned by others. Do not expand to unrelated building trades, whole-building elemental cost planning or general civil works.
 
 Keep design decisions with the responsible engineer: do not invent instrument locations, accuracy requirements, trigger/action/alarm limits, acceptable movements, treatment pressures/dosages, acceptance criteria or permission to resume works. Extract approved requirements, price their consequences and flag omissions. If an actual exceedance is supplied, highlight it against the provided plan and its stated escalation route; do not present a commercial assessment as clearance to continue work.
 
 ## 1. Establish the project basis
 
-Start from the documents supplied. Record missing fields; ask only for information that changes the current decision. Use the [project basis template](references/project-basis-template.yaml) and [output templates](references/output-templates.md).
+Start from the documents supplied. Record missing fields; ask only for information that changes the current decision. Use the [project basis template](project-basis-template.yaml) and [output templates](output-templates.md).
 
 | Field | Record |
 |---|---|
-| Scope | Project, employer, main contractor/subcontractor, public/private sector, one of the three specialist scope modes, location and output purpose |
+| Scope | Project, employer, main contractor/subcontractor, public/private sector, applicable specialist scope mode per package, location and output purpose |
 | Contract | Form, edition, execution/acceptance dates, pricing mechanism, relevant options, special/additional conditions, amendments and stated precedence clause |
 | Measurement | Exact standard title, edition, incorporated corrigenda, BOQ preambles and particular measurement amendments for **each package** |
 | Technical scope | Specifications, revisions, drawings/models and status, schedules, addenda, instructions and interface responsibilities |
@@ -49,7 +44,7 @@ Keep technical requirements, internal cost components, payable BOQ items, contra
 
 ## 3. Use evidence at the level it supports
 
-Read the [source register](references/source-register.json) to find official documents and their access status. Its `verified_on` is a review date, not a perpetual claim of currency. For a new live task, recheck amendments, legal commencement/applicability and time-sensitive indices. Save the selected edition and observation period in the work record.
+Read the [source register](source-register.json) to find official documents and their access status. Its `verified_on` is a review date, not a perpetual claim of currency. For a new live task, recheck amendments, legal commencement/applicability and time-sensitive indices. Save the selected edition and observation period in the work record.
 
 | Evidence level | Permitted use |
 |---|---|
@@ -76,20 +71,22 @@ Continue supported rows and draft descriptions. Isolate uncertainty; do not bloc
 
 Example: four monitoring stations operate as one system for six full agreed months. That is 6 system-months or 24 station-months under two different denominators. Use only the denominator in the relevant item; do not add both. A five-second upload interval describes a data service, not a billable reading unit unless the contract says so.
 
-## 5. Route to the smallest necessary skill set
+## 5. Load supporting guidance only when needed
 
-| Work | Skill |
+Let the [hkqs-mode router](../SKILL.md) select the requested deliverable and playbook. Use this reference to constrain that work; do not choose a different task merely because a source or domain term appears in the request.
+
+| Relevant package or decision | Supporting reference |
 |---|---|
-| Instrument/point schedules, baseline and recurring monitoring quantities | [hkqs-instrumentation-monitoring](../hkqs-instrumentation-monitoring/SKILL.md) |
-| Instrument boreholes and associated investigation/testing | [hkqs-ground-investigation](../hkqs-ground-investigation/SKILL.md) |
-| Instrumented treatment trials, production and verification | [hkqs-ground-improvement](../hkqs-ground-improvement/SKILL.md) |
-| Specialist rate build-ups, quotations and cost forecasts | [hkqs-cost-estimation](../hkqs-cost-estimation/SKILL.md) |
-| Interim measurement/payment, changes and extended monitoring | [hkqs-valuation-variations](../hkqs-valuation-variations/SKILL.md) |
-| Tender completeness, commercial interfaces and RFIs | [hkqs-tender-review](../hkqs-tender-review/SKILL.md) |
+| Instrument/point schedules, baseline and recurring monitoring | [Instrumentation and monitoring](domains/instrumentation-monitoring.md) |
+| Instrument boreholes and associated investigation/testing | [Ground investigation](domains/ground-investigation.md) |
+| Instrumented treatment trials, production and verification | [Ground improvement](domains/ground-improvement.md) |
+| Payment mechanisms, contract change evidence and cumulative reconciliation | [Valuation and change rules](valuation-rules.md) |
+
+Read additional references only for an actual dependency. Reuse one shared evidence record across linked playbooks; preserve separate package rules and avoid repeating an intake already completed.
 
 ## 6. Deliver a reviewable result
 
-Lead with the result and its status, then show:
+Scale the response to the selected playbook and requested deliverable. A narrow document question can be a sourced answer with its applicability limits; do not generate a BOQ, estimate or valuation unless the task needs one. For a commercial work package, lead with the result and its status, then show the applicable parts below:
 
 1. Project/edition basis, key source references and applicable document revisions.
 2. Calculation or valuation schedule with dimensions, formulas, units, quantities, rate evidence, amounts and per-row status.
@@ -97,4 +94,4 @@ Lead with the result and its status, then show:
 4. Reconciliation of totals, rounding, changes and uncertainty; do not add overlapping allowances twice.
 5. A short action list naming the missing evidence, responsible person and decision it will resolve.
 
-Use [output templates](references/output-templates.md) and the [measurement source map](references/measurement-sources.md). Read [GI references](references/ground-investigation-sources.md) or [ground-improvement references](references/ground-improvement-sources.md) only for those scopes. For cost and contract work read [cost/contract sources](references/cost-contract-sources.md). Present notices and certificates as drafts for the authorised person; do not issue, sign, submit or certify them without explicit user instruction and the required authority.
+Use [output templates](output-templates.md) and the [measurement source map](measurement-sources.md). Read [GI references](ground-investigation-sources.md) or [ground-improvement references](ground-improvement-sources.md) only for those scopes. For cost and contract work read [cost/contract sources](cost-contract-sources.md). Present notices and certificates as drafts for the authorised person; do not issue, sign, submit or certify them without explicit user instruction and the required authority.

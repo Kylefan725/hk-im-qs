@@ -4,7 +4,7 @@ project:
   employer: null
   sector: null # public | private | mixed | unknown
   scope: null
-  scope_mode: null # I&M_ONLY | GI_WITH_I&M | GROUND_IMPROVEMENT_WITH_I&M
+  scope_modes: [] # Derived from packages; may contain several of the modes below
   package_role: null # specialist subcontractor | main contractor | employer/QS | other
   location: Hong Kong
   output_purpose: null
@@ -26,6 +26,9 @@ contract:
 packages:
   - package_id: null
     scope_type: null # instrumentation-monitoring | instrumented-investigation | instrumented-improvement
+    scope_mode: null # I&M_ONLY | GI_WITH_I&M | GROUND_IMPROVEMENT_WITH_I&M
+    contract_reference: null # Relevant contract/source record; do not assume all packages share one contract
+    contract_overrides: {} # Record evidenced package-specific terms where a common contract basis is used
     measurement_standard: null
     edition: null
     corrigenda: []

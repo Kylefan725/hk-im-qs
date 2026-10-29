@@ -1,17 +1,27 @@
----
-name: hkqs-ground-investigation
-description: Prepare Hong Kong quantity surveying schedules, estimates, tender reviews and valuations for instrument-related ground investigation. Use for investigation and instrument boreholes, specified in-situ testing, groundwater observations, piezometer or inclinometer installation interfaces, field-record reconciliation and associated reinstatement under the project's adopted CEDD and GEO documents.
----
-
 # Hong Kong instrument-related ground investigation
+
+Use this domain reference only for a package selected by [hkqs-mode](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
+
+
+## Contents
+
+- [1. Establish the task and document basis](#1-establish-the-task-and-document-basis)
+- [2. Collect project and field inputs](#2-collect-project-and-field-inputs)
+- [3. Build linked registers before measuring](#3-build-linked-registers-before-measuring)
+- [4. Reconcile drilling and investigation activities](#4-reconcile-drilling-and-investigation-activities)
+- [5. Reconcile specified sampling and testing](#5-reconcile-specified-sampling-and-testing)
+- [6. Resolve the GI–instrumentation interface](#6-resolve-the-giinstrumentation-interface)
+- [7. Reconcile completion and rates](#7-reconcile-completion-and-rates)
+- [8. Produce a reviewable quantity and valuation pack](#8-produce-a-reviewable-quantity-and-valuation-pack)
+- [9. Example and final checks](#9-example-and-final-checks)
 
 ## 1. Establish the task and document basis
 
-1. Read [hkqs-general](../hkqs-general/SKILL.md) first; use its project basis, evidence and per-row status controls.
-2. Limit the package to specified instrument-related GI and its interfaces with monitoring or ground improvement. Identify unrelated building work as outside this skill's scope.
+1. Read [project basis and evidence controls](../project-basis.md) first; use its project basis, evidence and per-row status controls.
+2. Limit the package to specified instrument-related GI and its interfaces with monitoring or ground improvement. Identify unrelated building work as outside this reference's scope.
 3. Record whether the task is a tender takeoff, rate build-up, measurement check, interim valuation, variation assessment or final account.
 4. Establish the incorporated measurement method, particular preambles, specifications, drawings, addenda, instructions, contract family and pricing mechanism.
-5. Read the [GI source guide](../hkqs-general/references/ground-investigation-sources.md) and relevant entries in the [source register](../hkqs-general/references/source-register.json).
+5. Read the [GI source guide](../ground-investigation-sources.md) and relevant entries in the [source register](../source-register.json).
 6. Use `CEDD-SMM-1992` for measurement only if adopted; inspect the actual rule and any project amendment. Do not infer billing rules from technical specifications or instrument manufacturers' installation instructions.
 7. Use `CEDD-GS-2020`, `GEO-GEOGUIDE-2` and `GEO-GEOGUIDE-3` at the evidence level recorded. Published amendments do not automatically amend the signed contract.
 
