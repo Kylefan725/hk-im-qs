@@ -19,6 +19,17 @@ Version 0.2.0 introduced the single router; version 0.1.0 exposed seven speciali
 
 Measurement and sourced document questions retain their dedicated task playbooks. The source register retains the same 18 official references and verification dates; renaming the entry does not re-verify every source or change a project's adopted edition.
 
+## Update an existing clone after the repository rename
+
+The repository is now [Kylefan725/hk-im-qs](https://github.com/Kylefan725/hk-im-qs). For an existing HTTPS clone of `Kylefan725/qs-skills-hk`, run this from inside the checkout:
+
+```bash
+git remote set-url origin https://github.com/Kylefan725/hk-im-qs.git
+git remote -v
+```
+
+For SSH, use `git@github.com:Kylefan725/hk-im-qs.git` as the remote URL instead. Keep the current local folder name if an installed skill links to it. The skill entry remains `hk-im-qs`, and the package version remains `0.3.0-hk-im`.
+
 ## Upgrade an existing installation
 
 1. Locate the actual active skills directory configured in your host. Inspect any previous `hkqs-mode` entry or the seven earlier `hkqs-*` entries listed above, and retain any local customisation.

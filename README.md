@@ -85,8 +85,8 @@ Use the edition incorporated into the project and retrieve the actual relevant c
 Clone the repository, then give the installer your host's actual user/project skills directory. Python 3 is required for the installer and validator only.
 
 ```bash
-git clone https://github.com/Kylefan725/qs-skills-hk.git
-cd qs-skills-hk
+git clone https://github.com/Kylefan725/hk-im-qs.git
+cd hk-im-qs
 
 # Replace this example target with the directory supported by your host.
 python3 scripts/install_skills.py --target /path/to/your/skills --dry-run
