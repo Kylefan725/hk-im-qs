@@ -1,0 +1,57 @@
+{
+  "repository": "https://github.com/Kylefan725/qs-skills-guide",
+  "revision": "517d63d5435583dcaf857281adf74642f7ee07c0",
+  "reviewed_on": "2026-10-29",
+  "authority": "secondary_training_guidance",
+  "reuse_policy": "Original checklists only. No guide text is bundled. The upstream educational-purpose notice is not treated as a broad redistribution grant.",
+  "checklists": [
+    {
+      "path": "references/pricing-anomalies.md",
+      "source_url": "https://github.com/Kylefan725/qs-skills-guide/blob/517d63d5435583dcaf857281adf74642f7ee07c0/guides/pre-contract/09-bid-analysis-and-evaluation.md",
+      "reviewed_sections": [
+        "Core Concepts / Types of Tender Error",
+        "Core Concepts / Normalisation",
+        "Process & Methodology / Step 1: Arithmetic Check",
+        "Process & Methodology / Step 2: Qualifications and Exclusions Review",
+        "Process & Methodology / Step 3: Pricing Analysis",
+        "Process & Methodology / Step 4: Front-Loading Check",
+        "Tools & Techniques / Sensitivity Testing"
+      ],
+      "retained_methods": "Check arithmetic, compare stated scope, investigate pricing patterns and show the effect of supported comparison scenarios.",
+      "excluded_defaults": "No automatic tender-price correction, assumption that blank prices are zero, invented adjustment cost, inference of misconduct from a low rate, UK procurement rule or scoring weight. The adopted tender procedure controls formal corrections."
+    },
+    {
+      "path": "references/risk-allowances.md",
+      "source_url": "https://github.com/Kylefan725/qs-skills-guide/blob/517d63d5435583dcaf857281adf74642f7ee07c0/guides/pre-contract/10-pre-contract-risk-management.md",
+      "reviewed_sections": [
+        "Core Concepts / Contingency",
+        "Process & Methodology / Step 1: Risk Identification",
+        "Process & Methodology / Step 2: Risk Assessment",
+        "Process & Methodology / Step 3: Risk Quantification",
+        "Process & Methodology / Step 4: Risk Allocation",
+        "Process & Methodology / Step 5: Risk Mitigation",
+        "Tools & Techniques / Sensitivity Analysis",
+        "Common Pitfalls"
+      ],
+      "retained_methods": "Identify the event and cost driver, record the basis of a scenario, check overlapping allowances and track mitigation ownership.",
+      "excluded_defaults": "No example contingency percentage, UK cost, assumed likelihood, automatic ground-risk transfer or unsupported probabilistic confidence. Actual contract documents determine risk allocation."
+    },
+    {
+      "path": "references/historical-rates.md",
+      "source_url": "https://github.com/Kylefan725/qs-skills-guide/blob/517d63d5435583dcaf857281adf74642f7ee07c0/guides/specialist/07-benchmarking.md",
+      "reviewed_sections": [
+        "Process & Methodology / Step 2: Select Appropriate Comparators",
+        "Process & Methodology / Step 3: Collect and Organise Data",
+        "Process & Methodology / Step 4: Analyse and Compare",
+        "Process & Methodology / Step 5: Interpret and Report",
+        "Tools & Techniques / Location Adjustment",
+        "Tools & Techniques / Time Adjustment (Indexation)",
+        "Tools & Techniques / Outlier Detection",
+        "Common Pitfalls"
+      ],
+      "retained_methods": "Record the original rate basis, select comparable records, explain adjustments and investigate differences before drawing a conclusion.",
+      "excluded_defaults": "No automatic UK index, wage, tax, location factor, percentage tolerance or statistical rejection cut-off. A source must fit the Hong Kong component, billing denominator and dates."
+    }
+  ],
+  "limits": "The review covers the named sections and methods only. It does not adopt the wider guide as a runtime instruction source, project evidence or governing contract. NEC deadlines and deemed acceptance require the actual adopted clauses and amendments. The bundled checklists work without upstream repository access."
+}

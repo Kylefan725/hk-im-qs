@@ -52,6 +52,12 @@ A monthly valuation for ground improvement therefore follows **value-progress**,
 
 For a combined task, the router composes the necessary steps and reuses one project basis, quantity ledger and coverage matrix. It asks only for missing facts that materially change the result. Independent checks can be delegated when useful and supported; a single agent can execute the same playbooks.
 
+## Use within a host workflow
+
+When a host assigns a bounded task, [embedded execution](skills/hk-im-qs/references/embedded-workflow.md) keeps the host in charge of stage scope, canonical records, completion gates and publication. The skill reuses the supplied project basis and returns QS findings without another intake or inventory. Standalone requests continue through the same six playbooks.
+
+The skill loads original checklists for [pricing anomalies](skills/hk-im-qs/references/pricing-anomalies.md), [risk allowances](skills/hk-im-qs/references/risk-allowances.md) and [historical rates](skills/hk-im-qs/references/historical-rates.md) only when needed. [Guide provenance](skills/hk-im-qs/references/guide-provenance.json) records the reviewed upstream revision and sections. These checklists are secondary guidance. They preserve submitted prices and unknown inputs, and they do not supply adopted contract rules or Hong Kong market defaults. Upstream repository access is optional.
+
 ## What the single skill contains
 
 - One discoverable `SKILL.md` in `skills/hk-im-qs/`.

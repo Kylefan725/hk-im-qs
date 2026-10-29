@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import contextlib
 import io
+import json
 import shutil
 import subprocess
 import sys
@@ -10,12 +11,13 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
+from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 
 import install_skills  # noqa: E402
-from validate_repository import PLAYBOOKS, SKILL_PATH, validate  # noqa: E402
+from validate_repository import PLAYBOOKS, SKILL_PATH, markdown_links, validate  # noqa: E402
 
 
 class SingleSkillInstallationTests(unittest.TestCase):
@@ -67,6 +69,19 @@ class SingleSkillInstallationTests(unittest.TestCase):
                         if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc'}
         installed_files = {p.relative_to(entry) for p in entry.rglob('*') if p.is_file()}
         self.assertEqual(installed_files, source_files)
+        for path in installed_files:
+            self.assertEqual((entry/path).read_bytes(), (ROOT/SKILL_PATH/path).read_bytes())
+        for path in entry.rglob('*.md'):
+            for target in markdown_links(path.read_text(encoding='utf-8')):
+                if target.startswith(('https://', 'http://', '#', 'mailto:')):
+                    continue
+                resolved = (path.parent/unquote(target.split('#', 1)[0])).resolve()
+                self.assertTrue(resolved.is_relative_to(entry), f'{path}: {target}')
+                self.assertTrue(resolved.is_file(), f'{path}: {target}')
+        provenance = json.loads((entry/'references/guide-provenance.json').read_text())
+        self.assertEqual(len(provenance['checklists']), 3)
+        for checklist in provenance['checklists']:
+            self.assertTrue((entry/checklist['path']).is_file())
         for name in PLAYBOOKS:
             self.assertTrue((entry/'playbooks'/f'{name}.md').is_file())
         self.assertTrue((entry/'references/source-register.json').is_file())
@@ -157,6 +172,44 @@ class SingleSkillInstallationTests(unittest.TestCase):
         errors = validate(root)
         self.assertTrue(any('broken local link playbooks/missing-playbook.md' in error
                             for error in errors), errors)
+
+    def test_invalid_guide_provenance_blocks_installation_before_writing(self) -> None:
+        root = self.fixture_repository()
+        path = root/SKILL_PATH/'references/guide-provenance.json'
+        provenance = json.loads(path.read_text())
+        pinned = f'{provenance["repository"]}/blob/{provenance["revision"]}/guides/'
+        for index, (field, value) in enumerate((
+                ('revision', 'main'),
+                ('source_url', 'https://example.com/guide.md'),
+                ('source_url', pinned + '../../main/README.md'),
+                ('source_url', pinned + '%2e%2e/%2e%2e/main/README.md'),
+                ('source_url', pinned + 'pre-contract/review.md?ref=main'))):
+            with self.subTest(field=field, value=value):
+                target = self.scratch/f'blocked-install-{index}'
+                invalid = json.loads(json.dumps(provenance))
+                if field == 'revision':
+                    invalid[field] = value
+                else:
+                    invalid['checklists'][0][field] = value
+                path.write_text(json.dumps(invalid), encoding='utf-8')
+                result = subprocess.run(
+                    [sys.executable, str(root/'scripts/install_skills.py'),
+                     '--target', str(target), '--mode', 'copy'],
+                    text=True, capture_output=True, check=False,
+                )
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse(target.exists())
+
+    def test_missing_guide_checklist_blocks_installation_before_writing(self) -> None:
+        root = self.fixture_repository()
+        (root/SKILL_PATH/'references/pricing-anomalies.md').unlink()
+        result = subprocess.run(
+            [sys.executable, str(root/'scripts/install_skills.py'),
+             '--target', str(self.target), '--mode', 'copy'],
+            text=True, capture_output=True, check=False,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(self.target.exists())
 
 
 if __name__ == '__main__':

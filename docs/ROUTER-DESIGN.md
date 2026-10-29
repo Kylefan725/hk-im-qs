@@ -41,6 +41,12 @@ One project basis holds package IDs, document revisions, scope coverage, quantit
 
 Independent source, quantity or quote checks may run in parallel when the host supports them. The receiving agent owns shared totals and the integrated output. A reviewer receives the actual artifact and source evidence; agreement between agents is not a substitute for reconciliation. A host without delegation uses a separate self-check and does not claim independent review.
 
+## Embedded execution and secondary guidance
+
+The execution contract above describes standalone work. An explicit bounded host task selects [embedded execution](../skills/hk-im-qs/references/embedded-workflow.md). The host owns the stage, canonical artifacts, completion gates and output publication. The skill returns findings against the existing project basis and source identifiers. It does not create a second inventory or turn a tender addendum into a post-award claim.
+
+Three original commercial checklists load only for pricing anomalies, risk allowances or historical-rate comparisons. [Guide provenance](../skills/hk-im-qs/references/guide-provenance.json) records the pinned secondary source, reviewed sections and excluded defaults. The guide is separate from the official-source register. Its instructions and numerical examples do not override the host task, adopted sources or source-text gate. The bundled checklists need no upstream repository at runtime.
+
 ## Verification contract
 
 Completion is demonstrated by the requested work product: reproducible quantities, reconciled totals, comparable quotation scope, traceable clauses and correctly separated payment stages. The router inspects the actual result before declaring it complete.

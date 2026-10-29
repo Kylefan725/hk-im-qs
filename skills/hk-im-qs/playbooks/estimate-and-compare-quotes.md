@@ -58,6 +58,7 @@ Separate supplier warranty, contractor defects, ordinary maintenance and instruc
 For each item retain scope ID, billing unit, resource quantity, unit, source, date, validity,
 productivity basis, inclusions/exclusions, uncertainty and resulting amount.
 Use actual supplier/subcontract quotations or evidenced historical costs adjusted explicitly.
+When using historical costs, read [comparable historical rates](../references/historical-rates.md).
 Calculate resources from the planned method and site restrictions, not an invented HK norm.
 For crew productivity, show crew composition, paid hours, productive hours and output;
 avoid charging idle time both through reduced productivity and a separate standby allowance.
@@ -125,13 +126,17 @@ Record currency, delivery, quote validity, minimum order/hire and escalation sep
 Identify disposal, restricted hours, permits, safety access, third-party attendance and
 outage requirements from the actual scope; remove duplicated allowances across packages.
 Treat provisional sums, uncertainty allowances and contingency as distinct priced records.
+When assessing an uncertainty allowance or possible overlap, read [risk allowances](../references/risk-allowances.md). Keep unsupported exposure unquantified rather than adopting a generic percentage.
 
 ### 7. Compare like-for-like scope where requested
 
 Preserve each original quotation, currency, price date and supplier total. Build a common scope/quantity/service-period matrix and list additions, omissions and exclusions. Show original price, evidenced comparison adjustments, normalised price and unpriced gaps separately; an incomplete quote cannot win by treating its gaps as zero. Reuse review-tender findings for material compliance differences rather than repeating an entire tender review. Price alternative ownership, extension or frequency scenarios only where they help the user's decision, and identify assumptions. Do not call a comparison adjustment an agreed supplier price.
 
+For a material rate, arithmetic or coverage discrepancy, read [pricing anomalies](../references/pricing-anomalies.md). Do not change the submitted price to match recalculated arithmetic. Return any proposed correction with its evidence and applicable correction procedure.
+
 ## Outputs
 
+In embedded mode, return only the assigned estimate or comparison findings in the host's requested format. The host retains the canonical quantities, completion gates and publication.
 
 Provide the scope matrix, resource/rate build-ups, quotation register, quantity basis,
 programme/service assumptions, exclusions, alternatives and total reconciliation.

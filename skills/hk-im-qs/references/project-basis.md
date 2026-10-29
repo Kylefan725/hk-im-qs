@@ -12,6 +12,8 @@ Keep design decisions with the responsible engineer: do not invent instrument lo
 
 Start from the documents supplied. Record missing fields; ask only for information that changes the current decision. Use the [project basis template](project-basis-template.yaml) and [output templates](output-templates.md).
 
+In embedded mode, reuse the host's current project basis instead of starting a new template. Return material gaps and proposed corrections under the [embedded execution rules](embedded-workflow.md).
+
 | Field | Record |
 |---|---|
 | Scope | Project, employer, main contractor/subcontractor, public/private sector, applicable specialist scope mode per package, location and output purpose |
