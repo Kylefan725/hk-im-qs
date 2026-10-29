@@ -1,43 +1,27 @@
-# docs/
+# Source documents and project records
 
-Source materials and references the skills are based on.
+This focused version uses official Hong Kong references for I&M and associated instrumented ground works. Start with the [source register](../skills/hkqs-general/references/source-register.json) and select the edition actually incorporated in the project.
 
-**These files are git-ignored** because the standards are copyrighted and shouldn't be redistributed via this public repo. The skills under `../skills/` paraphrase the rules; the source PDFs stay local.
+## Working source set
 
-## What lives here
+1. Tender/subcontract, BOQ/schedule, particular preambles, specifications, drawings, addenda and clarifications.
+2. Relevant CEDD SMM/GS clauses and adopted amendments.
+3. Approved I&M plan, investigation/treatment plan, acceptance criteria and programme.
+4. Field and installation records, calibration/acceptance evidence, readings, reports and instructions.
+5. Quotations, resource assumptions, previous valuations/certificates and cash ledger where relevant.
+6. Authorised NEC or other licensed contract text if the project uses it.
 
-Place these in this folder on each machine that needs them (they will be ignored by git):
+Public official references are linked; no full source books or private project documents are bundled. Catalogue metadata confirms availability, not the content of an unreviewed clause. Refresh amendments and time-sensitive information for live work.
 
-### ANZSMM (measurement)
-- `ANZSMM_4P_3.1.pdf` — Australian and New Zealand Standard Method of Measurement of Building Works, 2018 Edition. Published by AIQS, NZIQS, MBA Limited, RMBA NZ. ISBN 978-0-9599641-0-3.
-- `ANZSMM_4P_3.1.txt` — Plain-text extract.
+Use `docs/local-sources/` and `docs/project-records/` for locally acquired working copies if needed. Both folders are ignored in version control. Keep extracts and scans there too. Do not upload confidential contracts, site records, credentials or licensed standards into a public repository.
 
-### ACMM (cost management)
-- `ACMM_Vol1.pdf` — Australian Cost Management Manual, Volume 1 (Cost Management Process), Second Edition, June 2000 (reprint December 2015). Published by AIQS. ISBN 1-876389-06-0.
-- `ACMM_Vol2.pdf` — Australian Cost Management Manual, Volume 2 (Sub-element Definitions and Method of Measurement), October 2001. ISBN 1-976389-10-9.
-- `ACMM_Vol3.pdf` — Australian Cost Management Manual, Volume 3 (Life Cycle Costing). Published by AIQS.
-- `ACMM_Vol1.txt`, `ACMM_Vol2.txt`, `ACMM_Vol3.txt` — Plain-text extracts.
+For each applied rule retain the exact title, edition/revision, clause or printed page, access date, project adoption evidence and affected bill rows. Differentiate technical scope, measurement coverage, contractual entitlement and arithmetic.
 
-## Where to get the official copies
+## Reference guides
 
-- Australia: Australian Institute of Quantity Surveyors (AIQS) — https://www.aiqs.com.au
-- New Zealand: New Zealand Institute of Quantity Surveyors (NZIQS) — https://www.nziqs.co.nz
-
-## Generating the text extract
-
-If you have `pdftotext` (bundled with Git for Windows under `C:\Program Files\Git\mingw64\bin\` on Windows), run:
-
-```powershell
-$pdftotext = "C:\Program Files\Git\mingw64\bin\pdftotext.exe"
-& $pdftotext -layout ".\ANZSMM_4P_3.1.pdf" ".\ANZSMM_4P_3.1.txt"
-& $pdftotext -layout ".\ACMM_Vol1.pdf" ".\ACMM_Vol1.txt"
-& $pdftotext -layout ".\ACMM_Vol2.pdf" ".\ACMM_Vol2.txt"
-& $pdftotext -layout ".\ACMM_Vol3.pdf" ".\ACMM_Vol3.txt"
-```
-
-```bash
-pdftotext -layout ANZSMM_4P_3.1.pdf ANZSMM_4P_3.1.txt
-pdftotext -layout ACMM_Vol1.pdf ACMM_Vol1.txt
-pdftotext -layout ACMM_Vol2.pdf ACMM_Vol2.txt
-pdftotext -layout ACMM_Vol3.pdf ACMM_Vol3.txt
-```
+- [Measurement and I&M](../skills/hkqs-general/references/measurement-sources.md)
+- [Ground investigation](../skills/hkqs-general/references/ground-investigation-sources.md)
+- [Ground improvement](../skills/hkqs-general/references/ground-improvement-sources.md)
+- [Costs and contracts](../skills/hkqs-general/references/cost-contract-sources.md)
+- [Project basis template](../skills/hkqs-general/references/project-basis-template.yaml)
+- [Working output templates](../skills/hkqs-general/references/output-templates.md)

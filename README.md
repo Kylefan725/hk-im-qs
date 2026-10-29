@@ -1,136 +1,115 @@
-# qs-skills
+# Hong Kong I&M Quantity Surveying Skills
 
-Claude Code skills for quantity surveying — built on the **ANZSMM 2018** (measurement of building works) and the **ACMM** (Australian Cost Management Manual, Volumes 1–3).
+Seven focused AI skills for **instrumentation and monitoring (I&M), ground investigation involving instruments, and ground improvement involving instruments** in Hong Kong.
 
-This repo is the source of truth. Pull updates here, and any machine that needs the skills installs from this repo.
+Adapted from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills). The original's Australian building measurement and broad cost-management modules have been replaced with specialist Hong Kong workflows. Original MIT attribution is retained in [LICENSE](LICENSE). See [migration and scope](docs/MIGRATION.md).
 
-## Skills
+[繁體中文說明](README.zh-HK.md)
 
-Nineteen skills covering both rulebooks. Each lives in `skills/<skill-name>/SKILL.md` and triggers on relevant QS tasks (BOQ preparation, measurement, cost planning, cost control, life cycle costing).
+## What this version does
 
-### ANZSMM 2018 — Measurement of Building Works (10 skills)
+Review specialist tender scope, build an auditable BOQ/quantity schedule, develop rates from quotations and resources, reconcile progress valuations, and assess monitoring extensions or instructed changes. Link instruments, boreholes, treatment zones, accepted observations, service periods and bill items through stable IDs.
 
-| Skill | Covers | ANZSMM sections |
-|---|---|---|
-| [anzsmm-general](skills/anzsmm-general/SKILL.md) | General rules, units, descriptions, billing, terminology — inherited by every other skill | §1 |
-| [anzsmm-preliminaries-demolition](skills/anzsmm-preliminaries-demolition/SKILL.md) | Preliminaries, Demolition (whole buildings, components, asbestos, designed shoring) | §2, §3 |
-| [anzsmm-substructure](skills/anzsmm-substructure/SKILL.md) | Groundworks, Piling, In-situ Concrete, Formwork, Reinforcement, Prestressing, Precast Concrete, Tanking | §4–11 |
-| [anzsmm-structure](skills/anzsmm-structure/SKILL.md) | Masonry, Stonework, Structural Steel, Metalwork | §12–15 |
-| [anzsmm-envelope](skills/anzsmm-envelope/SKILL.md) | Roofing, Facade, Windows, Glazing, Doors | §16–19, §24 |
-| [anzsmm-interior](skills/anzsmm-interior/SKILL.md) | Carpentry, Partitions, Ceilings, Access Floors, Hardware | §20–23, §25 |
-| [anzsmm-finishes](skills/anzsmm-finishes/SKILL.md) | Applied Finishes, Tiling/Slab/Paving, Carpet/Resilient, Painting | §26–29 |
-| [anzsmm-joinery](skills/anzsmm-joinery/SKILL.md) | Joinery, Furniture/Fittings/Equipment | §30, §31 |
-| [anzsmm-services](skills/anzsmm-services/SKILL.md) | Hydraulics, Drainage, Electrical, Mechanical, Transportation, Fire Protection | §32–36, §38 |
-| [anzsmm-exterior](skills/anzsmm-exterior/SKILL.md) | Landscaping, Roadworks, Included Sums | §37, §39 |
+Select one of three package modes:
 
-### ACMM — Cost Management (9 skills)
+- **I&M only:** instrument supply/install, baseline, monitoring, data services, maintenance and close-out, with associated works only where in this package.
+- **GI with I&M:** investigation/instrument boreholes, specified testing and instrument-installation/monitoring interfaces.
+- **Ground improvement with I&M:** treatment trials, production and verification linked to the monitoring package and approved control plan.
 
-| Skill | Covers | ACMM source |
-|---|---|---|
-| [acmm-cost-budgeting-planning](skills/acmm-cost-budgeting-planning/SKILL.md) | Initial / final budgets, the four cost-management stages (A Brief / B Outline / C Sketch Design / D Documentation), project specifics, locality and time indices, contingency types | Vol 1 §2 |
-| [acmm-construction-cost-management](skills/acmm-construction-cost-management/SKILL.md) | Documentation, tendering, tender appraisal, specialists, liquidated damages, delay claims, variations, monitoring/reporting (FF1–FF12 forms), cost adjustment, K-formula contract time | Vol 1 §3 |
-| [acmm-engineering-services-cost](skills/acmm-engineering-services-cost/SKILL.md) | Building areas (GFA, FECA, UCA, UFA, TA), engineering elements/sub-elements, four-stage budgeting/planning for engineering services internal/external/centralised energy | Vol 1 §4 |
-| [acmm-cost-analysis](skills/acmm-cost-analysis/SKILL.md) | Elemental and sub-elemental cost analysis (BOQ coding), Functional Area / Cost Analysis, Building Cost Indices, BCIS | Vol 1 §5 + Appendix A |
-| [acmm-elements-substructure-superstructure](skills/acmm-elements-substructure-superstructure/SKILL.md) | Element 00–11 reference: PR, SB, CL (storey-classified columns), UF, SC, RF, EW, WW, ED, NW, NS, ND | Vol 2 |
-| [acmm-elements-finishes-fittings](skills/acmm-elements-finishes-fittings/SKILL.md) | Element 12–16 reference: WF (wall finishes), FF (floor finishes), CF (ceiling finishes), FT (fitments), SE (special equipment) | Vol 2 |
-| [acmm-elements-services](skills/acmm-elements-services/SKILL.md) | Element 17–30 reference: SF, PD, WS, GS, SH, VE, EC, AC, FP, LP, CM, TS, SS, CE | Vol 2 |
-| [acmm-elements-external-and-special](skills/acmm-elements-external-and-special/SKILL.md) | Element 31–46 reference: AR, XP, XR, XN, XB, XL, XK, XD, XW, XG, XF, XE, XC, XS, XX, YY | Vol 2 |
-| [acmm-life-cycle-costing](skills/acmm-life-cycle-costing/SKILL.md) | LCC concepts and components, NPC/AEC discounting, sensitivity analysis, evaluation period, Cost-In-Use, building engineering services LCC, energy targets, floor-finish worked example | Vol 3 |
+This is a QS workflow toolkit. Engineering design, instrument selection adequacy, trigger values, treatment parameters and technical acceptance remain with the responsible engineer. A source-supported draft is ready for review, not a certificate or permission to continue works.
 
-## Repo layout
+## Seven skills
 
+| Skill | Main work |
+|---|---|
+| [hkqs-general](skills/hkqs-general/SKILL.md) | Scope, project documents, adopted editions, contract route, evidence and task routing |
+| [hkqs-instrumentation-monitoring](skills/hkqs-instrumentation-monitoring/SKILL.md) | Instrument/point register, ADMS, monitoring stages, duration/frequency and payment denominators |
+| [hkqs-ground-investigation](skills/hkqs-ground-investigation/SKILL.md) | Hole intervals, tests, instrument installations, groundwater records and GI/I&M interfaces |
+| [hkqs-ground-improvement](skills/hkqs-ground-improvement/SKILL.md) | Trials, treatment quantities, overlapping zones/passes, verification and I&M interfaces |
+| [hkqs-cost-estimation](skills/hkqs-cost-estimation/SKILL.md) | Supplier/resource-based rates, purchase/rental, telemetry, attendance, recurring cost and scenarios |
+| [hkqs-valuation-variations](skills/hkqs-valuation-variations/SKILL.md) | Measured progress, cumulative payments, changes, extensions, notice evidence and contract routes |
+| [hkqs-tender-review](skills/hkqs-tender-review/SKILL.md) | BOQ/specification/quote reconciliation, responsibility matrix, gaps and focused RFIs |
+
+Load the general core and only the specialists needed for the current task. Install all seven together because they use sibling references and one shared source register.
+
+## Hong Kong documents used
+
+The [source register](skills/hkqs-general/references/source-register.json) records **18 official sources**, verified on **29 October 2026**, with edition, URL, evidence level and applicability limits. Principal references are:
+
+| Purpose | Reference route |
+|---|---|
+| Measurement/payment coverage | CEDD **Standard Method of Measurement for Civil Engineering Works, 1992 Edition**, consolidated through Corrigendum 1/2011, plus adopted particular preambles |
+| GI, grouting and instrumentation technical scope | CEDD **General Specification for Civil Engineering Works, 2020 Edition**, Volume 1 Section 7 Parts 2, 4 and 6; selected consolidated amendment set |
+| Investigation/logging context | GEO **Geoguide 2** and **Geoguide 3**, 2017 consolidated versions |
+| Monitoring surveys | **Engineering Survey Practice Guides for Works Projects**, August 2025 update, Chapter 7 |
+| Geotechnical monitoring/control | **GEO Publication 1/2023**, **TGN54** and relevant project-approved I&M documents |
+| Treatment verification and marine context | **TGN18**, and relevant **Port Works Design Manual Parts 3/4** when the marine scope fits |
+| Contract and payment administration | Actual GCC/NEC/bespoke subcontract documents, relevant PAH chapter, and verified statutory/contractual payment provisions |
+
+Use the edition incorporated into the project. The newest publication does not retrospectively amend a contract. The general building HKSMM/ArchSD elemental route is not part of this focused version.
+
+The repository contains original instructions and links, not full source publications. Public availability does not mean unrestricted redistribution. Obtain any authorised NEC base contract or other licensed project document needed for a live task. See [source handling](docs/README.md).
+
+## Commercial controls that matter
+
+- **Separate cost from payment.** An internal allowance for calibration, maintenance or readings does not establish a separate payable BOQ item. Check the adopted inclusive coverage first.
+- **Define the denominator.** System-month, station-month, point-month, reading set and site visit are different measures. A data upload interval is not automatically a payable observation.
+- **Link physical work to evidence.** Drilled depth, recovered core, casing length and installed instrument count are different records. Two treatment passes do not automatically double net treated-ground volume.
+- **Keep contract routes separate.** GCC changes, NEC compensation events and bespoke subcontract provisions require their actual wording. Upstream obligations do not automatically flow down.
+- **Preserve uncertainty.** Use `CALCULATION_ONLY`, `NEEDS_SOURCE` and `READY_FOR_QS_REVIEW` per row. Continue supported work and isolate missing sources or unresolved amounts.
+- **Use real price evidence.** No fabricated Hong Kong market rates, universal percentages, notice periods or engineering thresholds are embedded.
+
+## Install from a local checkout
+
+Python 3 is required only for the installer and validation tools. The skills themselves are Markdown and JSON/YAML reference files. The installer creates each individual skill beneath an existing skills directory and refuses to overwrite any existing destination.
+
+```bash
+# Run from this repository. Preview first; this writes nothing.
+python3 scripts/install_skills.py --target ~/.claude/skills --dry-run
+
+# Install per-skill symlinks: updates in this checkout are immediately reflected.
+python3 scripts/install_skills.py --target ~/.claude/skills --mode symlink
+
+# Or use copies where symlinks are unsuitable; later updates require replacing the copies.
+python3 scripts/install_skills.py --target ~/.claude/skills --mode copy
 ```
-qs-skills/
-├── skills/                              # one folder per skill, each with a SKILL.md
-│   ├── anzsmm-general/                  # ANZSMM measurement — 10 skills
-│   ├── anzsmm-preliminaries-demolition/
-│   ├── anzsmm-substructure/
-│   ├── anzsmm-structure/
-│   ├── anzsmm-envelope/
-│   ├── anzsmm-interior/
-│   ├── anzsmm-finishes/
-│   ├── anzsmm-joinery/
-│   ├── anzsmm-services/
-│   ├── anzsmm-exterior/
-│   ├── acmm-cost-budgeting-planning/    # ACMM cost management — 9 skills
-│   ├── acmm-construction-cost-management/
-│   ├── acmm-engineering-services-cost/
-│   ├── acmm-cost-analysis/
-│   ├── acmm-elements-substructure-superstructure/
-│   ├── acmm-elements-finishes-fittings/
-│   ├── acmm-elements-services/
-│   ├── acmm-elements-external-and-special/
-│   └── acmm-life-cycle-costing/
-├── docs/                                # source materials (gitignored — see docs/README.md)
-├── README.md
-├── LICENSE                              # MIT (covers the skill text only, not the source standards)
-└── .gitignore
-```
 
-## Two sides of QS work
+For a project-scoped Claude installation, use `.claude/skills` as the target from that project's intended working directory, or give its absolute path. For a Codex installation, supply the skills directory supported by your environment explicitly. Do not replace an entire existing skills directory with this repository.
 
-| Lens | Tool | Purpose |
-|---|---|---|
-| **Measurement** | ANZSMM 2018 → `anzsmm-*` skills | Measure finished work for a Bill of Quantities (units, classifications, what's deemed in the rate) |
-| **Cost management** | ACMM → `acmm-*` skills | Plan, budget, control and analyse cost at element level (rates per m² of element area) |
-
-Different lenses on the same project — both belong in the toolkit.
-
-## Install on a new machine
-
-Skills are loaded by Claude Code from `~/.claude/skills/` (user-scoped) or a project's `.claude/skills/`.
-
-### Option A — clone and symlink (recommended)
-
-Single source of truth; `git pull` updates everywhere.
+Windows PowerShell example:
 
 ```powershell
-# Windows (PowerShell, run as Administrator for symlink)
-git clone https://github.com/kuikiun/qs-skills.git "$env:USERPROFILE\qs-skills"
-New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.claude\skills" -Target "$env:USERPROFILE\qs-skills\skills"
+python scripts/install_skills.py --target "$env:USERPROFILE\.claude\skills" --mode copy
 ```
+
+If received as a Git bundle, restore the complete repository first:
 
 ```bash
-# macOS / Linux
-git clone https://github.com/kuikiun/qs-skills.git ~/qs-skills
-ln -s ~/qs-skills/skills ~/.claude/skills
+git clone qs-skills-hk-im.bundle qs-skills-hk
+cd qs-skills-hk
+git switch hong-kong-edition
 ```
 
-### Option B — clone directly into `.claude/skills`
+Installation into ChatGPT's personal Skills directory is a separate action; this repository does not claim it has been installed there.
+
+## Example requests
+
+> Review this I&M tender and identify unclear instrument counts, monitoring duration, reading frequency, maintenance and borehole interfaces. Produce a responsibility matrix and RFIs in Traditional Chinese.
+
+> Use the specified CEDD measurement basis to reconcile these drilling logs and piezometer installations. Show raw quantities, payable quantities, included activities and missing evidence separately.
+
+> Compare two ADMS quotations on the same system scope, six-month service period, acceptance requirements and reporting obligations. Show equipment ownership, monthly costs and extension scenarios.
+
+> Prepare the monthly valuation for instrumented ground improvement. Reconcile treatment zones, verification tests, monitoring periods, previous certificates, retention and outstanding cash receipts.
+
+## Validate and maintain
 
 ```bash
-git clone https://github.com/kuikiun/qs-skills.git ~/.claude/skills
+python3 scripts/validate_repository.py
 ```
 
-## Disclaimer
+This checks the seven-skill structure, frontmatter, relative references, source IDs, source metadata and distribution exclusions. It does not certify technical/legal correctness or prove future URLs remain current. Practical checks are recorded in [VALIDATION.md](docs/VALIDATION.md).
 
-These skills paraphrase rules from the **ANZSMM 2018** and **ACMM Volumes 1–3** to make them usable in agentic QS work. They do **not** reproduce the standards verbatim and do **not** replace them. For any binding measurement or cost determination, refer to the official publications by AIQS, NZIQS, Master Builders Australia Limited, and Registered Master Builders Association of NZ.
+When updating, verify publisher revisions, preserve contract applicability, amend the shared source register, then review affected workflows. Do not bulk-import source standards or confidential project records. Keep examples synthetic and label assumptions.
 
-The source PDFs are git-ignored — see `docs/README.md` for sourcing instructions.
-
-## Updating skills
-
-1. Edit `skills/<skill-name>/SKILL.md`.
-2. Commit and push.
-3. On other machines: `git pull`.
-
-## Versioning
-
-The repo is versioned at the **repository level** using annotated git tags following [semver](https://semver.org). A new version corresponds to a GitHub Release.
-
-| Bump | When |
-|---|---|
-| **MAJOR** (1.0.0) | A skill is renamed or removed; a structural change that breaks downstream pulls (e.g. moving a skill into a different folder, changing the `name:` field) |
-| **MINOR** (0.x.0) | A new skill is added; a non-breaking expansion of an existing skill |
-| **PATCH** (0.0.x) | Content fix to an existing skill (clarification, typo, missing rule, updated cross-reference) |
-
-To create a new release:
-
-```bash
-git tag -a v0.2.0 -m "Brief release note"
-git push origin v0.2.0
-```
-
-Released versions: see [https://github.com/kuikiun/qs-skills/tags](https://github.com/kuikiun/qs-skills/tags).
-
-Current version: **v0.1.0** — initial release with 19 skills.
+**Adaptation version:** `0.1.0-hk-im` — specialist Hong Kong I&M scope.

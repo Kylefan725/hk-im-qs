@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-10-29",
+  "jurisdiction": "Hong Kong SAR",
+  "purpose": "Reference discovery and evidence-level control, not incorporation of documents or certification.",
+  "evidence_levels": {
+    "OFFICIAL_TEXT_REVIEWED": "Relevant source text was inspected selectively; obtain the exact task-specific clause before applying.",
+    "OFFICIAL_METADATA_VERIFIED": "Official title, edition, catalogue entry or listed scope metadata verified; detailed rules not available from this record.",
+    "PROJECT_DOCUMENT": "User-supplied project text; authority and incorporation must be verified per task.",
+    "UNAVAILABLE": "Required source not accessible; request lawful copy or relevant excerpt."
+  },
+  "sources": [
+    {
+      "id": "CEDD-SMM-1992",
+      "title": "Standard Method of Measurement for Civil Engineering Works",
+      "publisher": "Hong Kong Government / Civil Engineering and Development Department",
+      "edition_or_series": "1992 Edition; consolidated Rev 10 incorporating Corrigendum 1/2011, September 2011",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/standards-spec-handbooks-cost/stan-smm/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_79/cesmm_rev_10.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Adopted civil measurement, especially Section 2 GI and clauses 2.27-2.30 instrument installation; other items only where relevant",
+      "applicability_caveat": "Official catalogue and source text reviewed selectively. The electronic version is for reference; issued hard copy/corrigenda prevail over electronic inconsistencies. Not UK CESMM."
+    },
+    {
+      "id": "CEDD-GS-2020",
+      "title": "General Specification for Civil Engineering Works",
+      "publisher": "Civil Engineering and Development Department",
+      "edition_or_series": "2020 Edition; Volume 1 Rev 8 including Amendment 3/2026 dated 23 July 2026",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/standards-spec-handbooks-cost/stan-gs-2020/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_978/GS%202020%20Vol%201%20Rev%208_clean.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Section 7 Part 2 GI, Part 4 geotechnical grouting and Part 6 instrumentation, where applicable",
+      "applicability_caveat": "Current contents and selected relevant passages inspected. Record adopted amendments. Technical scope is not itself a separately payable bill item; do not apply grouting rules to all improvement methods."
+    },
+    {
+      "id": "CEDD-PAH-2024",
+      "title": "Project Administration Handbook for Civil Engineering Works",
+      "publisher": "Civil Engineering and Development Department",
+      "edition_or_series": "2024 Edition, rolling chapters: Ch4 27 July 2026; Ch5 21 September 2026; Ch6 20 March 2026; Ch7 15 July 2025; Ch9 23 December 2024",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/standards-spec-handbooks-cost/stan-pah/",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_80/PAH%202024%20Chapter%204%20Rev%2004_CLEAN.pdf",
+        "https://www.cedd.gov.hk/filemanager/eng/content_80/PAH%202024%20Chapter%207%20Rev%2003A_Clean.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Applicable public civil project estimating, tendering, administration and measurement workflows",
+      "applicability_caveat": "Chapters 4 and 7 passages and catalogue reviewed. Record exact chapter revision; departmental guidance is not automatically a private contract term. Ch7 begins from GCC1999; use NEC guidance for NEC."
+    },
+    {
+      "id": "DEVB-CONTRACTS",
+      "title": "Standard Contract Documents: General Conditions of Contract and associated forms",
+      "publisher": "Development Bureau",
+      "edition_or_series": "Building/Civil/E&M/Design-and-Build 1999; Term Building 2004; Term Civil 2002 listed",
+      "official_url": "https://www.devb.gov.hk/en/publications_and_press_releases/publications/standard_contract_documents/index.html",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Government GCC family selection and document retrieval",
+      "applicability_caveat": "Catalogue verified, not all clauses. Use signed contract edition, SCC/ACC, amendments and precedence provisions; do not hardcode notice/payment rules."
+    },
+    {
+      "id": "DEVB-NEC-HK",
+      "title": "NEC Engineering and Construction Contract documents and Practice Notes for Public Works Projects in Hong Kong",
+      "publisher": "Development Bureau",
+      "edition_or_series": "Practice Notes Volumes 0 and 1 September 2026; NEC ECC HK Edition ACC complete set July 2026",
+      "official_url": "https://www.devb.gov.hk/en/publications_and_press_releases/publications/standard_contract_documents/practice_notes_nec_engineering_construction_contract/index.html",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Hong Kong public works NEC guidance and supplementary documents",
+      "applicability_caveat": "Page also has a separate NEC4 branch. Select actual contract family/edition/options and incorporated ACC. Guidance does not replace the commercial NEC base contract."
+    },
+    {
+      "id": "NEC-ECC-HK",
+      "title": "NEC Engineering and Construction Contract Hong Kong Edition",
+      "publisher": "NEC Contracts / Thomas Telford",
+      "edition_or_series": "July 2023 base edition; project-adopted amendments to be recorded",
+      "official_url": "https://www.neccontract.com/products/contracts/hk-edition/nec-hong-kong-edition/nec-ecc-hong-kong-edition",
+      "related_urls": [],
+      "access": "LICENSED_COPY_REQUIRED",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Base NEC ECC Hong Kong Edition where adopted",
+      "applicability_caveat": "Commercial text not reviewed. Require authorised base contract, option, Contract Data, Scope and ACC for clause-level advice. TSC and PSC are different contract families."
+    },
+    {
+      "id": "CEDD-CEWTPI",
+      "title": "Civil Engineering Works Tender Price Index",
+      "publisher": "Civil Engineering and Development Department",
+      "edition_or_series": "Live series; scope governed by official explanatory notes and DEVB TC(W) 6/2017",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/standards-spec-handbooks-cost/CEWTPI-disclaimer/index.html",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Suitable civil tender-price normalisation for estimates",
+      "applicability_caveat": "Scope excludes architectural work, E&M installations, ground investigation, soft landscaping, ancillary works and term contracts. Read applicability before selecting."
+    },
+    {
+      "id": "CSD-CONSTRUCTION",
+      "title": "Index Numbers of the Costs of Labour and Materials Used in Public Sector Construction Projects",
+      "publisher": "Census and Statistics Department",
+      "edition_or_series": "Separate rebased series, including April 2003 and April 2021; material-specific series may differ",
+      "official_url": "https://www.censtatd.gov.hk/en/web_table.html?id=615-21001",
+      "related_urls": [
+        "https://www.censtatd.gov.hk/en/web_table.html?id=615-21002"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Specified labour/material input-cost series and contractual price adjustment evidence",
+      "applicability_caveat": "Record series ID, trade/material, base, observation period, provisional/revised status and contract formula. Do not mix index bases or replace the contractual basket with a tender-price index."
+    },
+    {
+      "id": "DEVB-SOPO",
+      "title": "Construction Industry Security of Payment Ordinance (Cap. 652): implementation and scope",
+      "publisher": "Development Bureau; Construction Industry Council; Hong Kong e-Legislation",
+      "edition_or_series": "Full operation 28 August 2025; verify current statute, scope and transitional provisions",
+      "official_url": "https://www.devb.gov.hk/en/legco_matters/replies_to_legco_questions/index_id_15528.html",
+      "related_urls": [
+        "https://www.cic.hk/content/sopl/en/scope.html",
+        "https://www.cic.hk/content/sopl/en/faq.html",
+        "https://www.elegislation.gov.hk/hk/cap652"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Screening potentially covered payment claims and contract mechanisms",
+      "applicability_caveat": "Official implementation and CIC scope text reviewed; do not treat every construction contract as covered. Check dates, public/private definitions, contract category/value, exclusions and subcontract chain; retrieve current statute for exact legal duties."
+    },
+    {
+      "id": "DEVB-SOPP-2021",
+      "title": "Security of Payment Provisions in Public Works Contracts: Technical Circular (Works) 6/2021 update",
+      "publisher": "Development Bureau",
+      "edition_or_series": "2025 update to TC(W) 6/2021",
+      "official_url": "https://www.devb.gov.hk/filemanager/technicalcirculars/en/upload/386/1/C-2021-06-02.pdf",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Transition and applicability of contractual SOPP in public works",
+      "applicability_caveat": "Keep contractual SOPP separate from statutory Cap. 652. Check exact acceptance dates, applicable amendment and contract incorporation; do not replace older contracts wholesale."
+    },
+    {
+      "id": "GEO-GEOGUIDE-2",
+      "title": "Guide to Site Investigation (Geoguide 2)",
+      "publisher": "Geotechnical Engineering Office, CEDD",
+      "edition_or_series": "2017 Version, consolidated 18 December 2017; original September 1987 with GG2/01/2017",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/geo/geoguides/geo-g2/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_108/eg2_20171218.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Investigation planning and technical scope for associated instrument boreholes",
+      "applicability_caveat": "Metadata and stated purpose verified. Retrieve actual technical clauses before application; not a method of payment."
+    },
+    {
+      "id": "GEO-GEOGUIDE-3",
+      "title": "Guide to Rock and Soil Descriptions (Geoguide 3)",
+      "publisher": "Geotechnical Engineering Office, CEDD",
+      "edition_or_series": "2017 Version, consolidated 29 August 2017; original July 1988 with GG3/01/2017",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/geo/geoguides/geo-g3/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_110/eg3_20170829.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_METADATA_VERIFIED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Logging and description terminology",
+      "applicability_caveat": "Metadata and purpose verified. Do not substitute geological descriptions for an unverified contractual payment classification."
+    },
+    {
+      "id": "LESB-ESPG-2025",
+      "title": "Engineering Survey Practice Guides for Works Projects",
+      "publisher": "Land and Engineering Survey Board, HKSAR Government",
+      "edition_or_series": "Updated edition August 2025, Revision 3",
+      "official_url": "https://www.cedd.gov.hk/filemanager/eng/content_22/ESPG_2025.pdf",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Monitoring survey, Chapter 7; survey-control and records scope as applicable",
+      "applicability_caveat": "Cover/revision and monitoring chapter inspected selectively. Foreword describes guidance, not universally mandatory rules. Follow adopted requirements and engineer-approved methods."
+    },
+    {
+      "id": "GEO-PUB-1-2023",
+      "title": "Deep Excavation Design and Construction (GEO Publication No. 1/2023)",
+      "publisher": "Geotechnical Engineering Office, CEDD",
+      "edition_or_series": "December 2023",
+      "official_url": "https://www.cedd.gov.hk/filemanager/eng/content_1024/ep1_2023.pdf",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "ELS monitoring/control context, especially Chapters 9 and 10",
+      "applicability_caveat": "Relevant I&M passages and contents inspected. ELS-specific technical guidance, not universal design trigger values or a payment schedule; design decisions belong to the engineer."
+    },
+    {
+      "id": "GEO-TGN54-2024",
+      "title": "GEO Technical Guidance Note No. 54: Guidelines on Ground Deformation Control Mechanism for Geotechnical Works",
+      "publisher": "Geotechnical Engineering Office, CEDD",
+      "edition_or_series": "Issue 1, 15 January 2024",
+      "official_url": "https://www.cedd.gov.hk/filemanager/eng/content_427/TGN%2054.pdf",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Ground deformation control and instrumented ground-improvement context, sections 5.1 and 5.4-5.5",
+      "applicability_caveat": "Selected passages inspected. Obtain approved project controls and responsible engineer decisions; no default trigger values are supplied by this skill."
+    },
+    {
+      "id": "GEO-TGN18-2026",
+      "title": "GEO Technical Guidance Note No. 18: Acceptance of Methods for Quality Control",
+      "publisher": "Geotechnical Engineering Office, CEDD",
+      "edition_or_series": "Issue 1 Revision B, 3 July 2026",
+      "official_url": "https://www.cedd.gov.hk/filemanager/eng/content_427/TGN%2018_1B.pdf",
+      "related_urls": [],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Acceptance and documented interpretation of new quality-control methods, section 5",
+      "applicability_caveat": "Selected passage inspected. Does not approve a test method for an individual project; obtain authorised method/acceptance criteria."
+    },
+    {
+      "id": "CEDD-PWDM3-2023",
+      "title": "Port Works Design Manual Part 3: Guide to Design of Reclamation",
+      "publisher": "Civil Engineering and Development Department",
+      "edition_or_series": "Continuously updated e-version June 2023; first published August 2002",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/ceo/pwdm/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_89/PWDM_2023_e-version%20June%202023_p3_1_130_revised1.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Marine reclamation monitoring, Chapter 5",
+      "applicability_caveat": "Cover and monitoring passages inspected. Check later corrigenda; marine context only. Not a universal ground-improvement specification."
+    },
+    {
+      "id": "CEDD-PWDM4-2026",
+      "title": "Port Works Design Manual Part 4: Guide to Design of Seawalls and Breakwaters",
+      "publisher": "Civil Engineering and Development Department",
+      "edition_or_series": "Continuously updated e-version April 2026; first published July 2003",
+      "official_url": "https://www.cedd.gov.hk/eng/publications/ceo/pwdm/index.html",
+      "related_urls": [
+        "https://www.cedd.gov.hk/filemanager/eng/content_89/p4_combined.pdf"
+      ],
+      "access": "PUBLIC_OFFICIAL",
+      "verification_level": "OFFICIAL_TEXT_REVIEWED",
+      "verified_on": "2026-10-29",
+      "intended_scope": "Marine soil-strengthening trials, QA and monitoring, section 7.3",
+      "applicability_caveat": "Cover and relevant passage inspected. Marine scope and adopted technique must fit; not universal billing or design rules."
+    }
+  ],
+  "scope": "Instrumentation and monitoring, instrument-related ground investigation, and ground improvement involving instrumentation."
+}

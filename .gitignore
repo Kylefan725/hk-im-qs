@@ -18,3 +18,11 @@ desktop.ini
 # The skills paraphrase the rules; users acquire the official PDF themselves.
 docs/*.pdf
 docs/*.txt
+
+# Local official working copies and confidential project inputs: never distribute.
+docs/local-sources/
+docs/project-records/
+docs/**/*.pdf
+docs/**/*.txt
+__pycache__/
+*.pyc

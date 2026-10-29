@@ -1,0 +1,70 @@
+# Working template, not an official contract document. Fill only evidenced values.
+project:
+  name: null
+  employer: null
+  sector: null # public | private | mixed | unknown
+  scope: null
+  scope_mode: null # I&M_ONLY | GI_WITH_I&M | GROUND_IMPROVEMENT_WITH_I&M
+  package_role: null # specialist subcontractor | main contractor | employer/QS | other
+  location: Hong Kong
+  output_purpose: null
+  output_language: English
+  currency: HKD
+  dimension_system: SI
+contract:
+  family: null # GCC | NEC | HKIS-HKIA | bespoke | other
+  exact_title: null
+  edition: null
+  pricing_mechanism: null
+  options: []
+  execution_date: null
+  acceptance_date: null
+  amendments: []
+  special_or_additional_conditions: []
+  precedence_clause: null
+  source_file: null
+packages:
+  - package_id: null
+    scope_type: null # instrumentation-monitoring | instrumented-investigation | instrumented-improvement
+    measurement_standard: null
+    edition: null
+    corrigenda: []
+    particular_preambles: []
+    source_id: null
+    applicable_clause_or_page: null
+    incorporation_evidence: null
+specifications: [] # title, edition, amendments, incorporation evidence
+drawings_and_models: [] # ID, revision, date, status, source, superseded flag
+cost_basis:
+  price_base_date: null
+  programme_version: null
+  estimate_stage: null
+  classification_title_and_version: null
+  area_definition_and_source: null
+  area_quantity_and_unit: null
+  service_denominator: null # system-month | instrument-month | reading | visit | other contract definition
+  index_series_and_base: null
+  index_observation_periods: []
+  rates_evidence: []
+  exclusions: []
+monitoring_basis:
+  asset_register_reference: null
+  baseline_definition: null
+  stage_definitions: []
+  sampling_interval: null
+  observation_cycle: null
+  upload_interval: null
+  report_interval: null
+  service_start_trigger: null
+  service_stop_trigger: null
+  partial_period_rule: null
+  maintenance_end_trigger: null
+  equipment_ownership: null
+  approved_control_plan_reference: null
+statutory_screen:
+  relevant_regime: null
+  applicability_status: null # unknown | screened_in | screened_out | needs_review
+  evidence: []
+  verified_on: null
+evidence_register: [] # source_id, title, edition/revision, clause/page, access, applicability
+unresolved_items: [] # item_id, issue, requested evidence, owner, impact, status
