@@ -1,9 +1,9 @@
 ---
-name: hkqs-mode
+name: hk-im-qs
 description: Route and complete Hong Kong quantity surveying requests for instrumentation and monitoring (I&M/ADMS), ground investigation with instruments, and ground improvement with instruments through internal playbooks. Use for tender/quotation reviews, BOQ and quantity takeoff, rate build-ups, monthly valuations, variations or monitoring extensions, and questions about adopted CEDD/GEO or contract documents, including mixed English/Traditional Chinese requests such as 報價、標書、工程量、糧單、變更工程 and 延長監測. The user describes the desired result; select and run the relevant playbooks without asking them to choose a skill.
 ---
 
-# HKQS mode
+# Hong Kong I&M Quantity Surveying
 
 Own the user's request from understanding to checked deliverable. Expose this single skill; treat the files in `playbooks/` and `references/` as internal working material, not separately invoked skills. Resolve every relative link from this skill's directory, never from the user's working directory. The pstack-inspired design is documented in the repository; this skill does not require pstack or a particular agent host.
 

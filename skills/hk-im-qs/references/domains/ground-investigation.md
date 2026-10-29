@@ -1,6 +1,6 @@
 # Hong Kong instrument-related ground investigation
 
-Use this domain reference only for a package selected by [hkqs-mode](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
+Use this domain reference only for a package selected by [hk-im-qs](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
 
 
 ## Contents

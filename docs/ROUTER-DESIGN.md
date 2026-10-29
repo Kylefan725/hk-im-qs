@@ -2,9 +2,9 @@
 
 ## User-facing change
 
-`hkqs-mode` is the only discoverable skill. The user describes the result they need; the receiving agent owns routing, execution, evidence checking and one final answer. Internal playbooks and references are ordinary Markdown files, not additional skill entries.
+`hk-im-qs` is the only discoverable skill. The user describes the result they need; the receiving agent owns routing, execution, evidence checking and one final answer. Internal playbooks and references are ordinary Markdown files, not additional skill entries.
 
-This replaces v0.1.0's seven externally visible skills. It preserves their specialist knowledge while removing the need to choose among them or to install sibling dependencies separately.
+Version 0.2.0 consolidated the seven v0.1.0 skills into one entry, then named `hkqs-mode`. Version 0.3.0 renames that entry to `hk-im-qs` and gives it the display name **Hong Kong I&M Quantity Surveying**. The task playbooks and domain guidance are retained inside the same self-contained skill.
 
 ## Reference implementation and provenance
 

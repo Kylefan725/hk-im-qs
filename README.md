@@ -1,21 +1,21 @@
-# HKQS mode — Hong Kong I&M quantity surveying
+# Hong Kong I&M Quantity Surveying
 
-**One entry skill. Describe the result you need; `hkqs-mode` selects and runs the relevant playbooks.**
+**One entry skill. Describe the result you need; `hk-im-qs` selects and runs the relevant playbooks.**
 
 Use it for **instrumentation and monitoring (I&M), ground investigation involving instruments, and ground improvement involving instruments** in Hong Kong. It handles tender reviews, measurements, estimates, payment valuations, changes and sourced document questions through one coordinated workflow.
 
-[繁體中文說明](README.zh-HK.md) · [Entry skill](skills/hkqs-mode/SKILL.md) · [Router design](docs/ROUTER-DESIGN.md) · [Upgrade from seven skills](docs/MIGRATION.md)
+[繁體中文說明](README.zh-HK.md) · [Entry skill](skills/hk-im-qs/SKILL.md) · [Router design](docs/ROUTER-DESIGN.md) · [Upgrade an existing installation](docs/MIGRATION.md)
 
 ## Start with the task
 
 For a host that exposes skills as slash commands:
 
 ```text
-/hkqs-mode Review this I&M tender and compare the two ADMS quotations.
+/hk-im-qs Review this I&M tender and compare the two ADMS quotations.
 Show missing scope, comparable costs and the RFIs in Traditional Chinese.
 ```
 
-Attach or explicitly select `hkqs-mode` using your host's supported skill mechanism. The skill also describes natural-language triggers, but automatic discovery and invocation depend on the host. No pstack installation or specific model is required.
+Attach or explicitly select `hk-im-qs` using your host's supported skill mechanism. The skill also describes natural-language triggers, but automatic discovery and invocation depend on the host. No pstack installation or specific model is required.
 
 You do not choose or install a separate skill for each workstream. The router identifies the requested outcome, reads the appropriate internal playbook, loads the necessary domain references and delivers one checked answer. Internal playbooks have no separate slash commands.
 
@@ -30,7 +30,7 @@ Two decisions work together:
 
 ```mermaid
 flowchart TD
-    A[User request] --> B[hkqs-mode]
+    A[User request] --> B[hk-im-qs]
     B --> C[Requested outcome]
     B --> D[Project and work domains]
     C --> E[Selected playbook sequence]
@@ -41,12 +41,12 @@ flowchart TD
 
 | Requested outcome | Internal playbook | Main result |
 |---|---|---|
-| Review tender/quotation scope or compliance | [Review tender](skills/hkqs-mode/playbooks/review-tender.md) | Scope and responsibility matrix, coverage findings and RFIs |
-| Measure records/drawings or prepare a BOQ | [Measure quantities](skills/hkqs-mode/playbooks/measure-quantities.md) | Traceable quantity ledger and proposed bill items |
-| Build rates, price a package or compare quotations | [Estimate and compare quotations](skills/hkqs-mode/playbooks/estimate-and-compare-quotes.md) | Resource build-ups, comparable scope/costs and explicit gaps |
-| Prepare a monthly valuation/payment reconciliation | [Value progress](skills/hkqs-mode/playbooks/value-progress.md) | Cumulative valuation, current amount and separate cash reconciliation |
-| Assess extra work, changed frequency or an extension | [Assess change](skills/hkqs-mode/playbooks/assess-change.md) | Baseline-to-change assessment, quantity/cost delta and evidence position |
-| Explain a requirement, inclusion, clause or edition | [Explain documents](skills/hkqs-mode/playbooks/explain-documents.md) | A sourced answer at the requested depth |
+| Review tender/quotation scope or compliance | [Review tender](skills/hk-im-qs/playbooks/review-tender.md) | Scope and responsibility matrix, coverage findings and RFIs |
+| Measure records/drawings or prepare a BOQ | [Measure quantities](skills/hk-im-qs/playbooks/measure-quantities.md) | Traceable quantity ledger and proposed bill items |
+| Build rates, price a package or compare quotations | [Estimate and compare quotations](skills/hk-im-qs/playbooks/estimate-and-compare-quotes.md) | Resource build-ups, comparable scope/costs and explicit gaps |
+| Prepare a monthly valuation/payment reconciliation | [Value progress](skills/hk-im-qs/playbooks/value-progress.md) | Cumulative valuation, current amount and separate cash reconciliation |
+| Assess extra work, changed frequency or an extension | [Assess change](skills/hk-im-qs/playbooks/assess-change.md) | Baseline-to-change assessment, quantity/cost delta and evidence position |
+| Explain a requirement, inclusion, clause or edition | [Explain documents](skills/hk-im-qs/playbooks/explain-documents.md) | A sourced answer at the requested depth |
 
 A monthly valuation for ground improvement therefore follows **value-progress**, with ground-improvement and I&M references. A question about whether instrument installation includes readings follows **explain-documents**. A budget for two extra monitoring months follows **estimating**; a question about claiming them follows **assess-change**.
 
@@ -54,7 +54,7 @@ For a combined task, the router composes the necessary steps and reuses one proj
 
 ## What the single skill contains
 
-- One discoverable `SKILL.md` in `skills/hkqs-mode/`.
+- One discoverable `SKILL.md` in `skills/hk-im-qs/`.
 - Six internal playbooks, each with inputs, ordered steps, outputs and completion checks.
 - Three domain references for I&M, instrumented GI and instrumented ground improvement.
 - Shared project/evidence controls, valuation rules, source notes and output templates.
@@ -66,7 +66,7 @@ This is a QS workflow toolkit. Instrument locations, technical performance, trig
 
 ## Hong Kong document basis
 
-The [source register](skills/hkqs-mode/references/source-register.json), checked on **29 October 2026**, includes:
+The [source register](skills/hk-im-qs/references/source-register.json), checked on **29 October 2026**, includes:
 
 | Purpose | Principal reference route |
 |---|---|
@@ -93,23 +93,23 @@ python3 scripts/install_skills.py --target /path/to/your/skills --dry-run
 python3 scripts/install_skills.py --target /path/to/your/skills --mode copy
 ```
 
-Copy mode places the complete self-contained `hkqs-mode` folder under that target. Symlink mode is available with `--mode symlink`; keep this checkout at its original location and pull updates there. Neither mode overwrites an existing destination or unrelated skills.
+Copy mode places the complete self-contained `hk-im-qs` folder under that target. Symlink mode is available with `--mode symlink`; keep this checkout at its original location and pull updates there. Neither mode overwrites an existing destination or unrelated skills.
 
-**Upgrading from v0.1.0:** the seven previous entry skills have become internal material. The installer detects their names, including broken old symlinks, and stops before writing. Archive those entries outside your active skills directory using the [migration instructions](docs/MIGRATION.md), then install the single entry. This repository has not installed anything into your personal Skills directory automatically.
+**Upgrading from v0.2.0 or v0.1.0:** archive the previous `hkqs-mode` entry or the original seven entry skills outside your active skills directory, then install `hk-im-qs`. The installer detects all legacy names, including broken symlinks, and stops before writing. Follow the [migration instructions](docs/MIGRATION.md) to preserve local changes. This repository has not installed anything into your personal Skills directory automatically.
 
 ## Example requests
 
 ```text
-/hkqs-mode Check the drilled lengths and piezometer installations in these logs.
+/hk-im-qs Check the drilled lengths and piezometer installations in these logs.
 Show raw quantities, proposed payable quantities and any inclusive-rate overlap.
 
-/hkqs-mode Prepare this month's ground-improvement valuation and assess the
+/hk-im-qs Prepare this month's ground-improvement valuation and assess the
 additional monitoring period. Keep unsupported entitlement and unpaid cash separate.
 
-/hkqs-mode Does this adopted instrument-installation item include readings?
+/hk-im-qs Does this adopted instrument-installation item include readings?
 Explain the clause and the effect of this particular preamble only.
 
-/hkqs-mode 比較這兩份 ADMS 報價，按相同監測點數、工期、維修及報告要求比較，
+/hk-im-qs 比較這兩份 ADMS 報價，按相同監測點數、工期、維修及報告要求比較，
 並列出未有報價或定義不清的項目。
 ```
 
@@ -122,4 +122,4 @@ python3 -m unittest discover -s tests -v
 
 The validator checks one skill entry, six playbooks, source metadata and local/self-contained links. Tests cover installation and migration conflicts. These do not prove an LLM will always route correctly or replace a professional review; practical routing checks and their limits are recorded in [VALIDATION.md](docs/VALIDATION.md).
 
-Adapted from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills), with the original [MIT notice](LICENSE) retained. **Version `0.2.0-hk-im`** changes the installation layout from seven skills to one router.
+Adapted from [kuikiun/qs-skills](https://github.com/kuikiun/qs-skills), with the original [MIT notice](LICENSE) retained. **Version `0.3.0-hk-im`** names the single entry `hk-im-qs` to make its Hong Kong I&M quantity-surveying scope explicit.

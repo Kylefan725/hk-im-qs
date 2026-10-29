@@ -1,6 +1,6 @@
 # Specialist valuations, changes and payment reconciliation
 
-Use this shared reference for the [progress valuation](../playbooks/value-progress.md) or [change assessment](../playbooks/assess-change.md) playbook selected by [hkqs-mode](../SKILL.md). Apply only the sections needed for that decision and produce the calling playbook's required outputs; do not turn a payment reconciliation into an unsolicited change claim or notice.
+Use this shared reference for the [progress valuation](../playbooks/value-progress.md) or [change assessment](../playbooks/assess-change.md) playbook selected by [hk-im-qs](../SKILL.md). Apply only the sections needed for that decision and produce the calling playbook's required outputs; do not turn a payment reconciliation into an unsolicited change claim or notice.
 
 Read [project basis and evidence controls](project-basis.md) first, then
 [cost and contract sources](cost-contract-sources.md) and the

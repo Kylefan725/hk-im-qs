@@ -20,7 +20,7 @@ from validate_repository import PLAYBOOKS, SKILL_PATH, validate  # noqa: E402
 
 class SingleSkillInstallationTests(unittest.TestCase):
     def setUp(self) -> None:
-        temporary = tempfile.TemporaryDirectory(prefix='hkqs-install-test-')
+        temporary = tempfile.TemporaryDirectory(prefix='hk-im-qs-install-test-')
         self.addCleanup(temporary.cleanup)
         self.scratch = Path(temporary.name)
         self.target = self.scratch/'active-skills'
@@ -59,10 +59,10 @@ class SingleSkillInstallationTests(unittest.TestCase):
         sentinel = self.add_unrelated_entry()
         result = self.install('--mode', 'copy')
         self.assertEqual(result.returncode, 0, result.stderr)
-        entry = self.target/'hkqs-mode'
+        entry = self.target/'hk-im-qs'
         self.assertFalse(entry.is_symlink())
         self.assertEqual([p.relative_to(self.target) for p in self.target.rglob('SKILL.md')],
-                         [Path('hkqs-mode/SKILL.md')])
+                         [Path('hk-im-qs/SKILL.md')])
         source_files = {p.relative_to(ROOT/SKILL_PATH) for p in (ROOT/SKILL_PATH).rglob('*')
                         if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc'}
         installed_files = {p.relative_to(entry) for p in entry.rglob('*') if p.is_file()}
@@ -76,19 +76,19 @@ class SingleSkillInstallationTests(unittest.TestCase):
         sentinel = self.add_unrelated_entry()
         result = self.install('--mode', 'symlink')
         self.assertEqual(result.returncode, 0, result.stderr)
-        entry = self.target/'hkqs-mode'
+        entry = self.target/'hk-im-qs'
         self.assertTrue(entry.is_symlink())
         self.assertEqual(entry.resolve(), (ROOT/SKILL_PATH).resolve())
         for name in PLAYBOOKS:
             self.assertTrue((entry/'playbooks'/f'{name}.md').is_file())
         self.assertTrue((entry/'references/source-register.json').is_file())
         self.assertEqual({p.name for p in self.target.iterdir()},
-                         {'hkqs-mode', 'unrelated-skill.txt'})
+                         {'hk-im-qs', 'unrelated-skill.txt'})
         self.assertEqual(sentinel.read_text(), 'preserve me')
 
     def test_existing_destination_is_not_overwritten(self) -> None:
         sentinel = self.add_unrelated_entry()
-        entry = self.target/'hkqs-mode'
+        entry = self.target/'hk-im-qs'
         entry.mkdir()
         existing = entry/'local-notes.md'
         existing.write_text('local edits', encoding='utf-8')
@@ -107,13 +107,17 @@ class SingleSkillInstallationTests(unittest.TestCase):
         original.write_text('user-modified legacy skill', encoding='utf-8')
         broken = self.target/'hkqs-ground-investigation'
         broken.symlink_to(self.scratch/'missing-old-checkout', target_is_directory=True)
+        previous_router = self.target/'hkqs-mode'
+        previous_router.symlink_to(self.scratch/'missing-router-checkout', target_is_directory=True)
         result = self.install('--mode', 'copy')
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('hkqs-general', result.stderr)
         self.assertIn('hkqs-ground-investigation', result.stderr)
+        self.assertIn('hkqs-mode', result.stderr)
         self.assertIn('Archive these entries outside every active skills directory', result.stderr)
-        self.assertFalse((self.target/'hkqs-mode').exists())
+        self.assertFalse((self.target/'hk-im-qs').exists())
         self.assertTrue(broken.is_symlink())
+        self.assertTrue(previous_router.is_symlink())
         self.assertEqual(original.read_text(), 'user-modified legacy skill')
         self.assertEqual(sentinel.read_text(), 'preserve me')
 
@@ -131,7 +135,7 @@ class SingleSkillInstallationTests(unittest.TestCase):
                 contextlib.redirect_stderr(io.StringIO()):
             result = install_skills.main()
         self.assertEqual(result, 1)
-        self.assertFalse((self.target/'hkqs-mode').exists())
+        self.assertFalse((self.target/'hk-im-qs').exists())
         self.assertEqual({p.name for p in self.target.iterdir()}, {'unrelated-skill.txt'})
         self.assertEqual(sentinel.read_text(), 'preserve me')
 

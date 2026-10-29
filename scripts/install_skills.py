@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the self-contained hkqs-mode router without overwriting existing skills."""
+"""Install the self-contained hk-im-qs router without overwriting existing skills."""
 from __future__ import annotations
 
 import argparse
@@ -63,7 +63,7 @@ def main() -> int:
                 shutil.rmtree(destination)
         print(f'Installation failed; newly created skill entries rolled back: {exc}', file=sys.stderr)
         return 1
-    print(f'Installed hkqs-mode with its playbooks and references in {target}. '
+    print(f'Installed hk-im-qs with its playbooks and references in {target}. '
           'Existing unrelated entries were preserved.')
     return 0
 

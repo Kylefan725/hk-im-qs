@@ -10,13 +10,14 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED = {'hkqs-mode'}
+EXPECTED = {'hk-im-qs'}
 LEGACY_SKILLS = {
+    'hkqs-mode',
     'hkqs-general', 'hkqs-instrumentation-monitoring', 'hkqs-ground-investigation',
     'hkqs-ground-improvement', 'hkqs-cost-estimation', 'hkqs-valuation-variations',
     'hkqs-tender-review',
 }
-SKILL_PATH = Path('skills/hkqs-mode')
+SKILL_PATH = Path('skills/hk-im-qs')
 PLAYBOOKS = {
     'review-tender', 'measure-quantities', 'estimate-and-compare-quotes',
     'value-progress', 'assess-change', 'explain-documents',

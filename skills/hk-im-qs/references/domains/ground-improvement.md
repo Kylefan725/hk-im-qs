@@ -1,6 +1,6 @@
 # Ground improvement with instrumentation — Hong Kong QS
 
-Use this domain reference only for a package selected by [hkqs-mode](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
+Use this domain reference only for a package selected by [hk-im-qs](../../SKILL.md). Apply its relevant constraints within the chosen playbook; it is supporting guidance, not an additional worklist. Do not execute every numbered section or produce every listed schedule automatically. Load another domain only where a real package interface needs it.
 
 Read [project basis and evidence controls](../project-basis.md) first and [ground-improvement sources](../ground-improvement-sources.md) before selecting technical references. Read [instrumentation and monitoring](instrumentation-monitoring.md) when the selected task needs the instrument/service schedule.
 

@@ -1,6 +1,6 @@
 # Validation record
 
-Scope: **v0.2.0-hk-im**, one `hkqs-mode` entry with six internal playbooks and three domain references. Review date: **29 October 2026**.
+Scope: **v0.3.0-hk-im**, one `hk-im-qs` entry with six internal playbooks and three domain references. Review date: **29 October 2026**.
 
 ## Structural and installation checks
 
@@ -17,7 +17,9 @@ The completed package passed the repository validator and the skill-creator fron
 
 The source register is unchanged from v0.1.0: 18 official entries with their existing evidence levels and review dates. No full source publications or private project records are bundled. Structural checks do not prove future URL availability or technical/legal applicability.
 
-## Routing and execution checks
+## Routing and execution checks from v0.2.0
+
+The following checks were run before the entry-name change, against v0.2.0. Version 0.3.0 changes the skill identifier, folder, display title and references without changing playbook behaviour. The rename is covered by packaging and installation checks; these scenarios were not rerun as new v0.3.0 checks.
 
 Three fresh-context agents received the entry skill path, a task and supplied project facts without the expected route or answer. After producing their answers, each reported the playbook files actually read; no expected route was supplied during execution.
 

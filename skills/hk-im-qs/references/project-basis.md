@@ -1,6 +1,6 @@
 # Project basis and evidence controls
 
-Use this shared reference when the [hkqs-mode router](../SKILL.md) or selected playbook needs project scope, measurement or evidence controls. Populate only fields material to the current request; a narrow document question does not require a complete project setup. Read the relevant domain reference and source passage on demand. Treat these instructions as an original QS workflow, not as the text of an official standard or a certification of compliance.
+Use this shared reference when the [hk-im-qs router](../SKILL.md) or selected playbook needs project scope, measurement or evidence controls. Populate only fields material to the current request; a narrow document question does not require a complete project setup. Read the relevant domain reference and source passage on demand. Treat these instructions as an original QS workflow, not as the text of an official standard or a certification of compliance.
 
 ## Scope boundary
 
@@ -73,7 +73,7 @@ Example: four monitoring stations operate as one system for six full agreed mont
 
 ## 5. Load supporting guidance only when needed
 
-Let the [hkqs-mode router](../SKILL.md) select the requested deliverable and playbook. Use this reference to constrain that work; do not choose a different task merely because a source or domain term appears in the request.
+Let the [hk-im-qs router](../SKILL.md) select the requested deliverable and playbook. Use this reference to constrain that work; do not choose a different task merely because a source or domain term appears in the request.
 
 | Relevant package or decision | Supporting reference |
 |---|---|
