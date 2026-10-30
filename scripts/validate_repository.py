@@ -22,8 +22,16 @@ PLAYBOOKS = {
     'review-tender', 'measure-quantities', 'estimate-and-compare-quotes',
     'value-progress', 'assess-change', 'explain-documents',
 }
+GUIDE_CHECKLISTS = {
+    'references/pricing-anomalies.md',
+    'references/risk-allowances.md',
+    'references/historical-rates.md',
+}
 REQUIRED_ROUTER_LINKS = {
     *(f'playbooks/{name}.md' for name in PLAYBOOKS),
+    *GUIDE_CHECKLISTS,
+    'references/embedded-workflow.md',
+    'references/guide-provenance.json',
     'references/project-basis.md',
     'references/domains/instrumentation-monitoring.md',
     'references/domains/ground-investigation.md',
@@ -110,6 +118,38 @@ def validate(root: Path = ROOT) -> list[str]:
         errors.append(f'Invalid source register: {exc}')
         ids = set()
 
+    provenance_path = skill_root / 'references/guide-provenance.json'
+    try:
+        provenance = json.loads(provenance_path.read_text(encoding='utf-8'))
+        repository = provenance['repository']
+        revision = provenance['revision']
+        if repository != 'https://github.com/Kylefan725/qs-skills-guide':
+            errors.append('Guide provenance: unexpected repository')
+        if not re.fullmatch(r'[0-9a-f]{40}', revision):
+            errors.append('Guide provenance: revision must be an immutable commit')
+        dt.date.fromisoformat(provenance['reviewed_on'])
+        if provenance['authority'] != 'secondary_training_guidance':
+            errors.append('Guide provenance: invalid authority')
+        checklists = provenance['checklists']
+        paths = [entry['path'] for entry in checklists]
+        if set(paths) != GUIDE_CHECKLISTS or len(paths) != len(GUIDE_CHECKLISTS):
+            errors.append('Guide provenance: checklist set mismatch')
+        for entry in checklists:
+            path = (skill_root / entry['path']).resolve()
+            if not path.is_relative_to(skill_root.resolve()) or not path.is_file():
+                errors.append(f'Guide provenance: missing bundled checklist {entry["path"]}')
+            source_url = entry['source_url']
+            pinned_path = re.escape(f'{repository}/blob/{revision}/guides/')
+            if not isinstance(source_url, str) or not re.fullmatch(
+                    pinned_path + r'(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+\.md', source_url):
+                errors.append(f'Guide provenance: source URL is not pinned for {entry["path"]}')
+            sections = entry['reviewed_sections']
+            if not isinstance(sections, list) or not sections or not all(
+                    isinstance(section, str) and section.strip() for section in sections):
+                errors.append(f'Guide provenance: missing reviewed sections for {entry["path"]}')
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        errors.append(f'Invalid guide provenance: {exc}')
+
     markdown = [root/'README.md', root/'README.zh-HK.md',
                 *(root/'docs').glob('*.md'), *(root/'skills').rglob('*.md')]
     for path in markdown:
@@ -146,6 +186,7 @@ def main() -> int:
     registry = json.loads((ROOT/SKILL_PATH/'references/source-register.json').read_text())
     print(f'PASS: {len(EXPECTED)} entry skill, {len(PLAYBOOKS)} playbooks, '
           f'{len(registry["sources"])} source entries, frontmatter, '
+          f'{len(GUIDE_CHECKLISTS)} pinned guide checklists, '
           'self-contained links and evidence references')
     print('Structural validation only; source applicability and professional decisions require review.')
     return 0

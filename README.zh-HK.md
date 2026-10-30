@@ -34,6 +34,12 @@
 
 複合工作會共用同一套工程基準、工程量及涵蓋範圍，避免各流程重複計算或作出互相矛盾的假設。只有影響結果而現有文件不能解答的資料，才需要向你追問。
 
+## 配合主工作流程
+
+當主工作流程指派一項有明確範圍的任務時，採用[嵌入式執行](skills/hk-im-qs/references/embedded-workflow.md)。主流程繼續管理階段範圍、正式紀錄、完成檢查及成果發布。技能沿用現有項目資料並交回 QS 結果，不另行建立文件清單或重新收集整個項目資料。獨立請求仍使用原有六個工作流程。
+
+技能只在有需要時讀取原創的[價格異常](skills/hk-im-qs/references/pricing-anomalies.md)、[風險預留](skills/hk-im-qs/references/risk-allowances.md)及[歷史單價比較](skills/hk-im-qs/references/historical-rates.md)檢查表。[來源紀錄](skills/hk-im-qs/references/guide-provenance.json)列明已審閱的指南版本及章節。指南不構成項目證據或合約規則，不提供香港預設單價或百分比。供應商原報價及未知金額必須保留，亦毋須連線至上游指南才可使用檢查表。
+
 ## 香港文件及工程控制
 
 保留 [18 項官方來源記錄](skills/hk-im-qs/references/source-register.json)，包括 CEDD 土木工程標準計量方法、土木工程一般規格、Geoguide 2／3、工程測量實務指引及相關 GEO 文件。來源記錄日期為 **2026 年 10 月 29 日**；實際工程必須採用合約納入的版本、特別條款及修訂，並查閱適用原文。

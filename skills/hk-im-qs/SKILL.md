@@ -5,7 +5,9 @@ description: Route and complete Hong Kong quantity surveying requests for instru
 
 # Hong Kong I&M Quantity Surveying
 
-Own the user's request from understanding to checked deliverable. Expose this single skill; treat the files in `playbooks/` and `references/` as internal working material, not separately invoked skills. Resolve every relative link from this skill's directory, never from the user's working directory. The pstack-inspired design is documented in the repository; this skill does not require pstack or a particular agent host.
+Expose this single skill; treat the files in `playbooks/` and `references/` as internal working material, not separately invoked skills. Resolve each Markdown link relative to the file containing it, never from the user's working directory. The pstack-inspired design is documented in the repository; this skill does not require pstack or a particular agent host.
+
+For standalone requests, own the work from understanding to checked deliverable. When a host workflow assigns a bounded task and retains its stage and records, read [embedded execution](references/embedded-workflow.md) first. In that mode, the host owns scope, canonical artifacts, completion gates and publication. Return the assigned QS findings to the host without starting a second intake or inventory.
 
 ## 1. Understand the result, then route
 
@@ -48,9 +50,19 @@ A task may include several packages/modes. Keep each package's measurement, rate
 
 Read [valuation rules](references/valuation-rules.md) for contractual entitlement or payment arithmetic. Use [output templates](references/output-templates.md) when preparing schedules. Read other references when the selected playbook calls for them; do not preload every file or every official publication.
 
+Load one commercial checklist at a time, only for the current decision:
+
+| Decision | Checklist |
+|---|---|
+| Investigate inconsistent rates, arithmetic or quote coverage | [Pricing anomalies](references/pricing-anomalies.md) |
+| Assess an uncertainty allowance or duplicated risk cost | [Risk allowances](references/risk-allowances.md) |
+| Use a historical rate or cost comparison | [Comparable historical rates](references/historical-rates.md) |
+
+These original checklists use reviewed methods from the pinned [guide provenance](references/guide-provenance.json). They are secondary training guidance, not project evidence or adopted rules. The optional upstream repository is not needed to use them. Do not import UK tax, wage, index or contingency defaults, NEC deadlines or deemed-acceptance rules. Obtain the actual applicable sources and amendments before applying such rules.
+
 ## 3. Own one plan and one project basis
 
-For a single playbook, track its ordered steps with the task's concrete outputs. Use the host's task list when available; otherwise keep a short working checklist. Retain a non-applicable step as skipped with a reason. This checklist is for execution; do not paste it into every user reply. Define completion in observable terms before doing a substantial task, such as “each claimed quantity traces to a log and adopted item, and the current certificate reconciles to previous certificates.”
+For a single playbook, track its ordered steps with the task's concrete outputs. In embedded mode, reuse the host's plan and project basis. Otherwise use the host's task list when available or keep a short working checklist. Retain a non-applicable step as skipped with a reason. This checklist is for execution; do not paste it into every user reply. Define completion in observable terms before doing a substantial task, such as “each claimed quantity traces to a log and adopted item, and the current certificate reconciles to previous certificates.”
 
 For mixed requests, compose the necessary playbooks into one dependency-ordered run. Reuse their outputs instead of recomputing independent versions of the same quantities or assumptions. Examples:
 
@@ -60,7 +72,7 @@ For mixed requests, compose the necessary playbooks into one dependency-ordered 
 
 Add a supporting playbook only when it contributes to the requested result. If no playbook fits exactly but the work is within the package's QS scope, compose a small explicit sequence using these steps and state its completion checks. Do not grow the request into a general construction or engineering service.
 
-Maintain one working record for multi-stage tasks:
+For standalone multi-stage tasks, maintain one working record. In embedded mode, use the host's existing record and return changes for the host to apply:
 
 ```text
 Goal and requested deliverables
@@ -76,7 +88,7 @@ Keep a short record in context for small work. Save a resumable record with the 
 
 ## 4. Execute and check the real result
 
-Own the integrated deliverable. Delegate independent document checks, quantity packages or quotation analyses only when that improves coverage or saves time and the host supports it. Give each delegate the actual source files, applicable internal playbook/domain paths, a bounded output and a clear check. Keep one owner of shared quantities, scope assumptions and totals; do not let parallel workers silently overwrite them. Use the host's available models and tools without requiring named model families or a pstack agent type.
+Own the assigned QS result. In standalone mode, also own the integrated deliverable. Delegate independent document checks, quantity packages or quotation analyses only when that improves coverage or saves time and the host supports it. Give each delegate the actual source files, applicable internal playbook/domain paths, a bounded output and a clear check. Keep one owner of shared quantities, scope assumptions and totals; do not let parallel workers silently overwrite them. Use the host's available models and tools without requiring named model families or a pstack agent type.
 
 For substantial valuations, ambiguous inclusions, mixed packages or material quotation comparisons, obtain an independent check when available. Give the checker the source records and actual produced artifact without supplying the desired conclusion. If delegation is unavailable, perform a separate reconciliation pass and say so only when relevant; never claim independent review that did not happen.
 
@@ -103,6 +115,8 @@ Keep process completion separate from these statuses. A requested draft can be c
 - Follow the session's permissions for any external action. A prepared notice, quotation, payment application or RFI remains a draft until issuance is explicitly authorised. Do not present professional certification as an agent capability.
 
 ## 6. Deliver one coherent answer
+
+In embedded mode, return the bounded result in the host's requested format and assigned location. The host reconciles it with other work and publishes the output. The standalone delivery instructions below do not authorise a separate report or a host stage transition.
 
 Lead with the requested result and its material finding. Provide the requested file/table/narrative, the sources and assumptions needed to inspect it, the checks performed and any unresolved decision with its effect. Match the user's language, including Traditional Chinese when requested. Keep internal routing names and delegation details out of ordinary QS answers unless they help the user understand a dependency or the user asks how the workflow works.
 

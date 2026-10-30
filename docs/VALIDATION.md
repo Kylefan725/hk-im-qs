@@ -11,9 +11,11 @@ python3 scripts/validate_repository.py
 python3 -m unittest discover -s tests -v
 ```
 
-The validator checks the single discoverable `SKILL.md`, frontmatter, six required playbooks and their completion contracts, core/domain links, self-contained local references, source IDs/metadata and distribution exclusions. The test suite exercises dry-run, copy/symlink installation, destination conflicts, legacy entries (including broken symlinks), unrelated-entry preservation and malformed-package rejection.
+The validator checks the single discoverable `SKILL.md`, frontmatter, six required playbooks and their completion contracts, core/domain links, self-contained local references, source IDs/metadata and distribution exclusions. It also checks the guide revision, source URL pins, reviewed-section metadata and three bundled checklist paths. The test suite exercises dry-run, copy/symlink installation, destination conflicts, legacy entries (including broken symlinks), unrelated-entry preservation and malformed-package rejection.
 
-The completed package passed the repository validator and the skill-creator frontmatter validator. All **8** focused installation/validation regression tests passed. `git diff --check` passed. No test installed skills into the user's actual active directory.
+The v0.3.0 baseline passed the repository validator, the skill-creator frontmatter validator and all **8** installation/validation tests. The embedded-guidance change passes the repository validator and **10** tests. The copied-install test compares file bytes and resolves local links inside the installed folder. New cases reject an unpinned guide revision, an unpinned source URL and a missing checklist before installation writes the target. `git diff --check` passed. No test installed skills into the user's actual active directory.
+
+These are structural and installation results. Fresh-context standalone/embedded scenarios, guide-unavailable behavior and repeated base/head model performance comparisons remain unverified for this change. Earlier scenarios below do not satisfy those checks.
 
 The source register is unchanged from v0.1.0: 18 official entries with their existing evidence levels and review dates. No full source publications or private project records are bundled. Structural checks do not prove future URL availability or technical/legal applicability.
 

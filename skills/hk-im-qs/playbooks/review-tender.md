@@ -13,7 +13,9 @@ Read [project basis](../references/project-basis.md) first. Use the [source regi
 
 ### 1. Establish the tender baseline
 
-Create a document index: tender/order, subcontract conditions, referenced main-contract extracts, BOQ/schedule, general and particular preambles, specification, drawings, I&M plan, treatment/investigation plan, programme, clarification replies and addenda. Record issue/revision/date and conflicts. Do not combine superseded quantities with revised specifications.
+In embedded mode, use the host's document index and return missing evidence or revision conflicts to the host. For standalone work, create an index of the relevant tender/order, subcontract conditions, referenced main-contract extracts, BOQ/schedule, preambles, specification, drawings, plans, programme, clarification replies and addenda. Record issue/revision/date and conflicts. Do not combine superseded quantities with revised specifications.
+
+Treat a tender addendum as a revision to the tender basis. In embedded mode, keep it within the host's addendum review. Do not infer a post-award variation or compensation event unless that separate assessment is requested.
 
 Identify scope mode, employer/main-contractor responsibilities, whether design is included, tender return requirements, rate/price validity and quote currency/base date. Distinguish fixed lump sum, remeasurement, schedule-of-rates, activity schedule, target-cost or bespoke arrangements. Do not turn an internal BOQ into a remeasurement right where the contract does not provide one.
 
@@ -55,6 +57,8 @@ Do not label all unlisted activities as variations or all listed quantities as g
 
 Normalize physical quantities, scope, duration, frequency, ownership, site attendance and deliverables before comparing totals. Show tendered totals and explicit comparison adjustments separately. Preserve unpriced items as unknown; do not set them to zero or fabricate market allowances.
 
+When a rate, arithmetic or coverage discrepancy affects the comparison, read [pricing anomalies](../references/pricing-anomalies.md). Keep recalculated arithmetic separate from the submitted tender price.
+
 Use [cost estimation](estimate-and-compare-quotes.md) for rate build-ups. For each adjustment retain supplier evidence or a labelled scenario. Show base, programme extension and frequency-change sensitivities if these are material. Confirm whether a supplier's “month” means calendar month, minimum rental block or another period.
 
 ### 5. Produce focused RFIs and risk actions
@@ -75,7 +79,7 @@ These are sample working item IDs and questions, not statements about a real ten
 
 ### 6. Reconcile the review and prepare the requested response
 
-Check each material finding against its actual document/revision and avoid duplicate RFIs for one missing definition. Reconcile scope/quantity/pricing assumptions with any supporting measurement or estimate. Keep priced adjustments and unquantified exposure separate. Produce the requested review or draft clarification with practical owners/actions; do not issue correspondence unless explicitly authorised.
+Check each material finding against its actual document/revision and avoid duplicate RFIs for one missing definition. Reconcile scope/quantity/pricing assumptions with any supporting measurement or estimate. Keep priced adjustments and unquantified exposure separate. In embedded mode, return the assigned findings and proposed clarifications for the host to reconcile and publish. Otherwise produce the requested review or draft clarification with practical owners/actions; do not issue correspondence unless explicitly authorised.
 
 ## Outputs
 
