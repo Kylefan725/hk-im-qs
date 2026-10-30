@@ -2,6 +2,14 @@
 
 Scope: **v0.3.0-hk-im**, one `hk-im-qs` entry with six internal playbooks and three domain references. Review date: **29 October 2026**.
 
+## Lifecycle and coverage checklist update — 30 October 2026
+
+The review-tender playbook now links an original checklist for bidirectional requirement/BQ/quotation/operation checks, scoped finding identities, lifecycle duties, separate monitoring/maintenance/rental periods and critical source checks. Embedded returns and working output fields use the same distinctions. The entry skill, installer, official source register and pinned guide provenance are unchanged; no private project evidence is bundled.
+
+Observed on Windows with Python 3.10.11: `python -B scripts/validate_repository.py` passed. The 10 installation tests ran: eight passed; symlink installation and the broken-symlink legacy fixture failed with `WinError 1314` (required privilege not held). A run outside the execution sandbox produced the same two failures. Copy installation, copied-byte/local-link checks, dry-run, conflict preservation, rollback and malformed-package rejection passed. These failures remain open host limitations, not passing or skipped checks. No system settings or active skill directories were changed.
+
+The skill-creator `quick_validate.py` passed using the installed Python 3.14 with `-X utf8`. The default Python 3.10 lacked its `yaml` dependency, and Python 3.14 without UTF-8 mode could not decode the existing multilingual entry skill under the Windows default code page. `git diff --check` passed. These checks establish packaging and instruction structure; fresh-context execution of the new lifecycle/coverage cases and professional adjudication remain separate verification.
+
 ## Structural and installation checks
 
 Run:

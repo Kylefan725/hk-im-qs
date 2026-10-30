@@ -21,9 +21,9 @@ Identify scope mode, employer/main-contractor responsibilities, whether design i
 
 For a subcontract, inspect the incorporation and flow-down clauses and exact documents furnished. A named main contract is not proof that every upstream condition, deadline or risk transfers unchanged. Separate subcontract notice recipients/time limits from the main contract. Screen applicable payment legislation using `DEVB-SOPO`; do not assume universal coverage or that contractual SOPP and statutory adjudication are identical.
 
-### 2. Reconcile scope in three directions
+### 2. Reconcile scope in both directions
 
-Check the specification/drawings against the BOQ, the BOQ against the supplier/subcontractor quote, and the quote against programme/operating obligations. Assign one responsible package to each interface. Use internal IDs clearly labelled as working IDs, not standard SMM codes.
+Check the specification/drawings against the BOQ, the BOQ against the supplier/subcontractor quote, and the quote against programme/operating obligations, then check each relationship in reverse. Use [the tender coverage checklist](../references/tender-coverage-review.md) for material findings, lifecycle duties and service-period mismatches. Record source-backed responsibility or an explicit unresolved interface. Use internal IDs clearly labelled as working IDs, not standard SMM codes; reuse the host's existing IDs in embedded mode.
 
 | Review area | Questions to resolve |
 |---|---|
@@ -46,10 +46,10 @@ Read relevant units, measurement, itemisation and inclusive coverage together, i
 
 Distinguish four findings:
 
-- A required activity clearly included in an existing payable item.
-- A required activity with a clear separate bill item.
-- A required activity whose payment allocation is unclear.
-- An optional alternative or scope outside the requested package.
+- `included`: a required activity clearly included in an existing payable item.
+- `separately_payable`: a required activity with a clear separate bill item.
+- `unclear_allocation`: a required activity whose payment allocation is unclear.
+- `outside_package`: scope supported as outside the requested package. Record an optional alternative explicitly; do not imply that it is a required extra.
 
 Do not label all unlisted activities as variations or all listed quantities as guaranteed. Do not convert missing pricing coverage into an agreed exclusion without written clarification. Record any proposed qualified quote, the requirement it conflicts with, its cost effect and the approval needed before issue.
 
@@ -79,7 +79,7 @@ These are sample working item IDs and questions, not statements about a real ten
 
 ### 6. Reconcile the review and prepare the requested response
 
-Check each material finding against its actual document/revision and avoid duplicate RFIs for one missing definition. Reconcile scope/quantity/pricing assumptions with any supporting measurement or estimate. Keep priced adjustments and unquantified exposure separate. In embedded mode, return the assigned findings and proposed clarifications for the host to reconcile and publish. Otherwise produce the requested review or draft clarification with practical owners/actions; do not issue correspondence unless explicitly authorised.
+Check each material finding against its actual document/revision and avoid duplicate RFIs for one missing definition within the same applicability scope. Reconcile scope/quantity/pricing assumptions with any supporting measurement or estimate. Inspect original evidence for critical conclusions and material ambiguities under the tender coverage checklist; record unresolved source checks. Keep source totals, CALCULATION_ONLY scenarios and unquantified exposure separate. In embedded mode, return the assigned findings and proposed clarifications for the host to reconcile and publish. Otherwise produce the requested review or draft clarification with practical owners/actions; do not issue correspondence unless explicitly authorised.
 
 ## Outputs
 
@@ -96,9 +96,10 @@ Use `CALCULATION_ONLY`, `NEEDS_SOURCE` and `READY_FOR_QS_REVIEW` per row. A smal
 
 ## Completion checks
 
-- Every material finding identifies its source/revision, requirement and commercial effect or clearly states why the effect is not yet quantified.
-- BOQ, specification, quotation and operating period are reconciled for the relevant package.
+- Every material finding traces source/revision, applicability, responsibility, quantity basis, period, payment position, quote coverage, consequence and action, or names the specific missing link.
+- BOQ, specification, quotation and operating obligations are reconciled in both directions for the relevant package, using the same finding IDs.
 - Included activities, separately payable items, unclear allocations and optional scope remain distinct.
-- Monitoring denominators, start/stop obligations, GI/treatment interfaces and responsibility for shared services are resolved or identified as open.
+- Monitoring, maintenance and rental denominators/start-stop obligations, GI/GIMP interfaces and responsibility for shared services are resolved or identified as open.
+- Critical source checks and material unreadable/hidden/omitted-source limitations are explicit; changed sources reopen affected findings without discarding unaffected work.
 - Comparison adjustments use evidence or CALCULATION_ONLY scenarios; unresolved inputs remain NEEDS_SOURCE and supported draft findings are READY_FOR_QS_REVIEW.
 - The requested review and focused RFIs are complete, with no unsupported claim that the whole tender is settled or correspondence has been sent.
