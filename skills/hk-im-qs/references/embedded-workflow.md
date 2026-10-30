@@ -16,6 +16,8 @@ Apply these ownership rules to every selected playbook.
 - Do not overwrite canonical artifacts, supplier quotations or manager-edited outputs. Do not clear host warnings, mark a stage complete or publish an independent final report.
 - Preserve unknown values and the host's evidence classifications. Use `CALCULATION_ONLY`, `NEEDS_SOURCE` and `READY_FOR_QS_REVIEW` for commercial findings only where the host format permits. Do not translate them into host approval or completion states.
 - Report the sources, calculations, submitted prices, separate analytical adjustments and unresolved dependencies needed to inspect the result. A missing amount stays unknown, including `null` where the host format uses it.
+- For material tender findings, use [the tender coverage checklist](tender-coverage-review.md) within the assigned scope. Preserve host obligation/payment-question IDs, source-tree and package identities, quantity bases and separate monitoring/maintenance/rental periods. Return proposed changes through the existing host contract rather than inventing a replacement schema.
+- Keep original source totals, `CALCULATION_ONLY` scenarios and unquantified exposures separate. Report critical source-check outcomes and specific unreadable/omitted-source gaps; a checked citation or commercial status cannot clear the host's proof, quantity, spatial or importer gates.
 - State which assigned checks were completed and which remain blocked. The host owns completion gates and the final handoff, even when every QS check passes.
 
 ## Stay within the requested stage

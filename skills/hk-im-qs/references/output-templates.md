@@ -21,6 +21,22 @@ Keep gross geometry and bill quantity in distinct columns. A unit in a working e
 
 A metadata-only source cannot support a clause-level decision. For conflicting documents, record both positions and the identified precedence provision; escalate an unresolved conflict.
 
+## Tender scope, payment and quotation coverage
+
+For material tender findings, follow [the tender coverage checklist](tender-coverage-review.md). Use one record across the brief, working schedule and evidence appendix. In embedded mode, populate the host's existing fields and return any unsupported link as a gap.
+
+`Finding/obligation/payment-question IDs | source tree + file/revision + locator | applicable commercial/programme package + window | requirement | responsibility | quantity value/unit/denominator/basis | monitoring/maintenance/rental period references | payment position + evidence | quote/revision/item + coverage/exclusion | consequence | action/owner | evidence state | commercial review status`
+
+Use `included`, `separately_payable`, `unclear_allocation` or `outside_package` for payment position. Keep quantity basis and human acceptance separate. A source-supported zero differs from unknown. Preserve all sides of a scope, quantity or payment conflict.
+
+Record each service period separately:
+
+`Period ID | service | covered IDs | source/revision + locator | start trigger | stop trigger | stated duration/unit | frequency/fixed count/event | minimum/partial-period rule | quote coverage | unresolved action`
+
+Keep monitoring, maintenance and rental rows distinct even when their dates coincide. Unknown bounds remain unknown; do not fill them from the overall works programme.
+
+Present three financial groups: cited source totals/supportable subtotals with currency and allowance IDs; derived `CALCULATION_ONLY` scenarios with input citations, formula and units; and unquantified or disputed exposure. Never add a scenario or unknown amount into a supported contractual subtotal. Show source-check and revision status so a corrected finding refreshes every dependent projection.
+
 ## Cost plan and reconciliation
 
 | Work package / element | Classification source/code | Cost/area scope | Quantity and unit | Base rate/source | Base cost | Time adjustment basis | Other identified allowance | Forecast | Confidence/action |
